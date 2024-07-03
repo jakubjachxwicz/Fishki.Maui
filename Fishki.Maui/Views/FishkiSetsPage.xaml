@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fishki.Maui.Views.FishkiSetsPage"
+             Title="FishkiSetsPage"
+             Shell.NavBarIsVisible="False">
+
+
+    <Grid RowDefinitions="60, *, 40" Margin="8">
+        <Label 
+            Text="Twoje zestawy Fishek"
+            FontSize="Title"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"/>
+
+        <ListView Grid.Row="1">
+            
+        </ListView>
+
+        <Button 
+            x:Name="btnAddFishki"
+            Grid.Row="2"
+            Text="Dodaj nowy zestaw"/>
+    </Grid>
+</ContentPage>
