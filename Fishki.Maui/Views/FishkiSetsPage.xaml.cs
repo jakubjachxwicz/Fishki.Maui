@@ -30,7 +30,7 @@ public partial class FishkiSetsPage : ContentPage
         BindingContext = this;
     }
 
-    protected override  void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
 
@@ -44,6 +44,8 @@ public partial class FishkiSetsPage : ContentPage
         {
             foreach (var fishkiSet in apiResponse)
             {
+                fishkiSet.FirstFlagIconSource = $"FlagIcons/flag_{fishkiSet.FirstLanguage}.png";
+                fishkiSet.SecondFlagIconSource = $"FlagIcons/flag_{fishkiSet.SecondLanguage}.png";
                 _fishkiSets.Add(fishkiSet);
             }
         }

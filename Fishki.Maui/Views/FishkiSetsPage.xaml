@@ -16,6 +16,8 @@
             TextColor="#4b4b4b"
             Margin="0, 0, 0, 15"/>
 
+        <!--<Image Source="FlagIcons/flag_pl.png" />-->
+
         <ListView 
             x:Name="lVwFishkiSets"
             Grid.Row="1"
@@ -42,7 +44,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
-                                    <RowDefinition Height="1.5*" />
+                                    <RowDefinition Height="1.4*" />
                                 </Grid.RowDefinitions>
                                 <Label Grid.RowSpan="3" Text="{Binding Name}"
                                        VerticalOptions="Center"
@@ -54,16 +56,24 @@
                                        HorizontalTextAlignment="Start"
                                        VerticalTextAlignment="Center"
                                        TextColor="White"/>
-                                <Label Grid.Row="0" Grid.Column="2"
-                                       Text="{Binding FirstLanguage}"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       TextColor="White"/>
-                                <Label Grid.Row="1" Grid.Column="2"
-                                       Text="{Binding SecondLanguage}"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       TextColor="White"/>
+                                <Border Grid.Row="0" Grid.Column="2"
+                                        WidthRequest="37"
+                                        Stroke="White"
+                                        StrokeThickness="4">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="6" />
+                                    </Border.StrokeShape>
+                                    <Image Source="{Binding FirstFlagIconSource}"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="2"
+                                        WidthRequest="37"
+                                        Stroke="White"
+                                        StrokeThickness="4">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="6" />
+                                    </Border.StrokeShape>
+                                    <Image Source="{Binding SecondFlagIconSource}"/>
+                                </Border>
                                 <Label Grid.Row="2" Grid.Column="2"
                                        Text="{Binding WordsCount}"
                                        HorizontalOptions="Center"
