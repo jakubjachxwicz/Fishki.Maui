@@ -3,23 +3,83 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fishki.Maui.Views.FishkiSetsPage"
              Title="FishkiSetsPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False" BackgroundColor="#e5e5e5">
 
 
-    <Grid RowDefinitions="60, *, 40" Margin="8">
+    <Grid RowDefinitions="70, *, 70" Margin="8">
         <Label 
             Text="Twoje zestawy Fishek"
             FontSize="Title"
             FontAttributes="Bold"
-            HorizontalTextAlignment="Center"/>
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            TextColor="#4b4b4b"
+            Margin="0, 0, 0, 15"/>
 
-        <ListView Grid.Row="1">
-            
+        <ListView 
+            x:Name="lVwFishkiSets"
+            Grid.Row="1"
+            ItemsSource="{Binding FishkiSets}"
+            RowHeight="130"
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Border StrokeThickness="2"
+                                Margin="4"
+                                Padding="20, 8, 8, 8"
+                                BackgroundColor="#43c000"
+                                Stroke="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="1.5*" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.RowSpan="3" Text="{Binding Name}"
+                                       VerticalOptions="Center"
+                                       FontSize="Body"
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                                <Label Grid.Row="2" Grid.Column="1"
+                                       Text="Liczba słówek:"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="White"/>
+                                <Label Grid.Row="0" Grid.Column="2"
+                                       Text="{Binding FirstLanguage}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       TextColor="White"/>
+                                <Label Grid.Row="1" Grid.Column="2"
+                                       Text="{Binding SecondLanguage}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       TextColor="White"/>
+                                <Label Grid.Row="2" Grid.Column="2"
+                                       Text="{Binding WordsCount}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       TextColor="White"/>
+                            </Grid>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <Button 
             x:Name="btnAddFishki"
             Grid.Row="2"
-            Text="Dodaj nowy zestaw"/>
+            Text="Dodaj nowy zestaw"
+            BackgroundColor="#58cc02"/>
     </Grid>
 </ContentPage>
