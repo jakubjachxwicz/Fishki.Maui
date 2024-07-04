@@ -37,7 +37,7 @@
                                 </Border.StrokeShape>
                                 <Border.Shadow>
                                     <Shadow Brush="#338c01"
-                                            Offset="40, 40"
+                                            Offset="15, 15"
                                             Radius="10"/>
                                 </Border.Shadow>
                                 <Grid>
@@ -64,20 +64,22 @@
                                     <Border Grid.Row="0" Grid.Column="2"
                                             WidthRequest="37"
                                             Stroke="White"
-                                            StrokeThickness="4">
+                                            StrokeThickness="3">
                                         <Border.StrokeShape>
-                                            <RoundRectangle CornerRadius="6" />
+                                            <RoundRectangle CornerRadius="2" />
                                         </Border.StrokeShape>
-                                        <Image Source="{Binding FirstFlagIconSource}"/>
+                                        <Image Source="{Binding FirstFlagIconSource}"
+                                               Aspect="Fill"/>
                                     </Border>
                                     <Border Grid.Row="1" Grid.Column="2"
                                             WidthRequest="37"
                                             Stroke="White"
-                                            StrokeThickness="4">
+                                            StrokeThickness="3">
                                         <Border.StrokeShape>
-                                            <RoundRectangle CornerRadius="6" />
+                                            <RoundRectangle CornerRadius="2" />
                                         </Border.StrokeShape>
-                                        <Image Source="{Binding SecondFlagIconSource}"/>
+                                        <Image Source="{Binding SecondFlagIconSource}"
+                                               Aspect="Fill"/>
                                     </Border>
                                     <Label Grid.Row="2" Grid.Column="2"
                                            Text="{Binding WordsCount}"

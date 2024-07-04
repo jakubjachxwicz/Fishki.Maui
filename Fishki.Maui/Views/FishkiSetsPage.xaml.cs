@@ -70,8 +70,8 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
         {
             foreach (var fishkiSet in apiResponse)
             {
-                fishkiSet.FirstFlagIconSource = $"FlagIcons/flag_{fishkiSet.FirstLanguage}.png";
-                fishkiSet.SecondFlagIconSource = $"FlagIcons/flag_{fishkiSet.SecondLanguage}.png";
+                fishkiSet.FirstFlagIconSource = $"flag_{fishkiSet.FirstLanguage}.png";
+                fishkiSet.SecondFlagIconSource = $"flag_{fishkiSet.SecondLanguage}.png";
                 temp.Add(fishkiSet);
             }
         }
