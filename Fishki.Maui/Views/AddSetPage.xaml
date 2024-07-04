@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fishki.Maui.Views.AddSetPage"
+             Title="AddSetPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#e5e5e5">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LeftSideLbl">
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="8" RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width=".45*" />
+            <ColumnDefinition Width=".15*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource TitleLabel}"
+               Grid.ColumnSpan="3"
+               Text="Dodaj nowy zestaw"/>
+
+        <Label Text="Nazwa:"
+               Grid.Row="1"
+               Style="{StaticResource LeftSideLbl}"/>
+        <Label Text="Pierwszy język:"
+               Grid.Row="2"
+               Style="{StaticResource LeftSideLbl}"/>
+        <Label Text="Drugi język:"
+               Grid.Row="3"
+               Style="{StaticResource LeftSideLbl}"/>
+
+        <Entry Grid.Row="1"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Margin="20 ,0, 20, 0"/>
+
+        <Picker Grid.Row="2"
+                Grid.Column="1"
+                Margin="20 ,0, 20, 0"/>
+
+        <Picker Grid.Row="3"
+                Grid.Column="1"
+                Margin="20 ,0, 20, 0"/>
+
+        <Button Text="Dodaj"
+                Grid.Row="5"
+                Style="{StaticResource BottomButton}"
+                Grid.ColumnSpan="3"/>
+        <Button Text="Anuluj"
+                Grid.Row="6"
+                Grid.ColumnSpan="3"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding CancelButtonCommand}"/>
+    </Grid>
+</ContentPage>

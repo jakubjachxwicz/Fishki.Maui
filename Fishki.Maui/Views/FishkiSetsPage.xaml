@@ -3,25 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fishki.Maui.Views.FishkiSetsPage"
              Title="FishkiSetsPage"
-             Shell.NavBarIsVisible="False" BackgroundColor="#e5e5e5">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#e5e5e5">
 
 
-    <Grid RowDefinitions="70, *, 70" Margin="8">
-        <Label 
-            Text="Twoje zestawy Fishek"
-            FontSize="Title"
-            FontAttributes="Bold"
-            HorizontalTextAlignment="Center"
-            VerticalTextAlignment="Center"
-            TextColor="#4b4b4b"
-            Margin="0, 0, 0, 15"/>
+    <Grid RowDefinitions="70, *, 60" Margin="8">
+        <Label Style="{StaticResource TitleLabel}"
+               Text="Twoje zestawy Fishek"/>
 
         <!--<Image Source="FlagIcons/flag_pl.png" />-->
 
-        <RefreshView x:Name="kurwa"
-                     Grid.Row="1"
+        <RefreshView Grid.Row="1"
                      RefreshColor="#43c000"
-                     IsRefreshing="{Binding IsRefreshing}">
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding RefreshCommand}">
             <CollectionView x:Name="lVwFishkiSets"
                 ItemsSource="{Binding FishkiSets}">
                 <CollectionView.ItemTemplate>
@@ -98,6 +93,7 @@
             x:Name="btnAddFishki"
             Grid.Row="2"
             Text="Dodaj nowy zestaw"
-            BackgroundColor="#4b4b4b"/>
+            Style="{StaticResource BottomButton}"
+            Command="{Binding AddSetCommand}"/>
     </Grid>
 </ContentPage>

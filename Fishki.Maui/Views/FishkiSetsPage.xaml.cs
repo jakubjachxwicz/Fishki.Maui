@@ -15,6 +15,7 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
     private ObservableCollection<FishkiSet> _fishkiSets;
     private bool _isRefresing;
     public ICommand RefreshCommand { get; set; }
+    public ICommand AddSetCommand { get; set; }
 
     public ObservableCollection<FishkiSet> FishkiSets
     {
@@ -48,14 +49,8 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
             IsRefreshing = false;
         });
 
-        kurwa.Command = RefreshCommand;
-
+        AddSetCommand = new Command(() => Shell.Current.GoToAsync(nameof(AddSetPage)));
         BindingContext = this;
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
 
         RefreshFishkiList();
     }
