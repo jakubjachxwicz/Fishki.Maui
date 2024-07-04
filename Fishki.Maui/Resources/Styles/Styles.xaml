@@ -4,6 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <Style TargetType="Label" x:Key="TitleLabel">
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="#4b4b4b" />
+        <Setter Property="Margin" Value="0, 0, 0, 15" />
+    </Style>
+
+    <Style TargetType="Button" ApplyToDerivedTypes="True" x:Key="BottomButton">
+        <Setter Property="BackgroundColor" Value="#4b4b4b" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="HeightRequest" Value="60" />
+    </Style>
+
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
     </Style>
