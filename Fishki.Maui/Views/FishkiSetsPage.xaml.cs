@@ -1,14 +1,20 @@
 using Fishki.Maui.Models;
 using Fishki.Maui.Utils;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
+using System.Windows.Input;
 
 namespace Fishki.Maui.Views;
 
-public partial class FishkiSetsPage : ContentPage
+public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 {
+    public event PropertyChangedEventHandler PropertyChanged;
     private readonly FishkiApiService _apiService;
     private ObservableCollection<FishkiSet> _fishkiSets;
+    private bool _isRefresing;
+    public ICommand RefreshCommand { get; set; }
 
     public ObservableCollection<FishkiSet> FishkiSets
     {
@@ -19,6 +25,15 @@ public partial class FishkiSetsPage : ContentPage
             OnPropertyChanged(nameof(FishkiSets));
         }
     }
+    public bool IsRefreshing
+    {
+        get => _isRefresing;
+        set
+        {
+            _isRefresing = value;
+            OnPropertyChanged(nameof(IsRefreshing));
+        }
+    }
 
     public FishkiSetsPage()
     {
@@ -26,6 +41,15 @@ public partial class FishkiSetsPage : ContentPage
 
         _fishkiSets = new ObservableCollection<FishkiSet>();
         _apiService = new FishkiApiService();
+
+        RefreshCommand = new Command(() =>
+        {
+            Debug.WriteLine("pierdolone gówno");
+            RefreshFishkiList();
+            IsRefreshing = false;
+        });
+
+        kurwa.Command = RefreshCommand;
 
         BindingContext = this;
     }
@@ -39,15 +63,27 @@ public partial class FishkiSetsPage : ContentPage
 
     private async void RefreshFishkiList()
     {
+        var temp = new ObservableCollection<FishkiSet>();
+        
         var apiResponse = await _apiService.GetAllSets();
+
         if (apiResponse != null)
         {
             foreach (var fishkiSet in apiResponse)
             {
                 fishkiSet.FirstFlagIconSource = $"FlagIcons/flag_{fishkiSet.FirstLanguage}.png";
                 fishkiSet.SecondFlagIconSource = $"FlagIcons/flag_{fishkiSet.SecondLanguage}.png";
-                _fishkiSets.Add(fishkiSet);
+                temp.Add(fishkiSet);
             }
         }
+
+        FishkiSets = temp;
+
+        Debug.WriteLine("awjkdbawhj");
+    }
+
+    public void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
