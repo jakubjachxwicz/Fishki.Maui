@@ -57,6 +57,270 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\FlagIcons\flag_ad.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ae.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_af.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ag.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ai.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_al.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_am.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ao.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_aq.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ar.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_arab.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_as.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_at.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_au.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_aw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ax.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_az.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ba.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bb.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bd.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_be.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bh.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bi.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bj.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bo.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bq.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_br.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bs.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bv.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_by.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_bz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ca.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cd.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cefta.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ch.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ci.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ck.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_co.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cp.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cv.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cx.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cy.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_cz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_de.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_dg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_dj.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_dk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_dm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_do.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_dz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_eac.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ec.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ee.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_eg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_eh.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_en.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_er.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_es.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_et.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_eu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_fi.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_fj.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_fk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_fm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_fo.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_fr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ga.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gb.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gd.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ge.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gh.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gi.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gp.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gq.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gs.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_gy.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_hk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_hm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_hn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_hr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ht.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_hu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ic.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_id.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ie.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_il.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_im.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_in.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_io.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_iq.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ir.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_is.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_it.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_je.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_jm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_jo.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_jp.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ke.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kh.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ki.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_km.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kp.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ky.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_kz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_la.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lb.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_li.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ls.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_lv.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ly.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ma.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_md.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_me.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mh.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ml.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mo.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mp.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mq.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ms.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mv.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mx.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_my.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_mz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_na.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_nc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ne.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_nf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ng.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ni.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_nl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_no.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_np.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_nr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_nu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_nz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_om.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pa.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pe.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ph.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ps.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_pw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_py.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_qa.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_re.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ro.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_rs.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ru.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_rw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sa.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sb.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sd.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_se.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sh.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_si.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sj.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_so.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ss.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_st.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sv.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sx.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sy.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_sz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_td.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_th.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tj.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tl.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_to.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tr.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tv.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tw.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_tz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ua.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ug.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_um.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_un.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_us.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_uy.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_uz.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_va.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_vc.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ve.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_vg.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_vi.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_vn.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_vu.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_wf.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ws.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_xk.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_xx.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_ye.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_yt.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_za.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_zm.svg" />
+	  <None Remove="Resources\Images\FlagIcons\flag_zw.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -70,6 +334,792 @@
 	  <MauiXaml Update="Views\FishkiSetsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ad.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ae.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_af.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ag.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ai.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_al.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_am.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ao.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_aq.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ar.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_arab.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_as.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_at.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_au.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_aw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ax.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_az.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ba.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bb.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bd.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_be.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bh.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bi.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bj.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bo.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bq.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_br.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bs.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bv.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_by.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_bz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ca.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cd.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cefta.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ch.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ci.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ck.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_co.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cp.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cv.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cx.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cy.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_cz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_de.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_dg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_dj.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_dk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_dm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_do.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_dz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_eac.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ec.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ee.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_eg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_eh.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_en.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_er.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_es.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_et.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_eu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_fi.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_fj.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_fk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_fm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_fo.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_fr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ga.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gb.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gd.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ge.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gh.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gi.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gp.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gq.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gs.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_gy.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_hk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_hm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_hn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_hr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ht.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_hu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ic.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_id.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ie.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_il.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_im.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_in.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_io.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_iq.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ir.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_is.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_it.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_je.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_jm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_jo.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_jp.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ke.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kh.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ki.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_km.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kp.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ky.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_kz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_la.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lb.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_li.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ls.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_lv.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ly.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ma.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_md.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_me.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mh.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ml.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mo.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mp.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mq.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ms.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mv.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mx.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_my.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_mz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_na.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_nc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ne.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_nf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ng.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ni.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_nl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_no.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_np.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_nr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_nu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_nz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_om.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pa.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pe.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ph.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ps.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_pw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_py.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_qa.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_re.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ro.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_rs.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ru.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_rw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sa.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sb.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sd.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_se.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sh.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_si.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sj.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_so.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ss.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_st.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sv.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sx.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sy.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_sz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_td.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_th.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tj.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tl.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_to.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tr.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tv.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_tz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ua.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ug.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_um.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_un.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_us.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_uy.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_uz.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_va.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_vc.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ve.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_vg.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_vi.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_vn.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_vu.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_wf.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ws.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_xk.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_xx.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_ye.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_yt.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_za.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_zm.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\FlagIcons\flag_zw.svg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiImage>
 	</ItemGroup>
 
 </Project>

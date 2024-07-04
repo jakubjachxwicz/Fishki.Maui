@@ -1,31 +1,86 @@
+using Fishki.Maui.Models;
 using Fishki.Maui.Utils;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
+using System.Windows.Input;
 
 namespace Fishki.Maui.Views;
 
-public partial class FishkiSetsPage : ContentPage
+public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 {
-	private readonly FishkiApiService _apiService;
-    
+    public event PropertyChangedEventHandler PropertyChanged;
+    private readonly FishkiApiService _apiService;
+    private ObservableCollection<FishkiSet> _fishkiSets;
+    private bool _isRefresing;
+    public ICommand RefreshCommand { get; set; }
+
+    public ObservableCollection<FishkiSet> FishkiSets
+    {
+        get => _fishkiSets;
+        set
+        {
+            _fishkiSets = value;
+            OnPropertyChanged(nameof(FishkiSets));
+        }
+    }
+    public bool IsRefreshing
+    {
+        get => _isRefresing;
+        set
+        {
+            _isRefresing = value;
+            OnPropertyChanged(nameof(IsRefreshing));
+        }
+    }
+
     public FishkiSetsPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
+        _fishkiSets = new ObservableCollection<FishkiSet>();
         _apiService = new FishkiApiService();
-	}
 
+        RefreshCommand = new Command(() =>
+        {
+            RefreshFishkiList();
+            IsRefreshing = false;
+        });
 
-    protected override async void OnAppearing()
+        kurwa.Command = RefreshCommand;
+
+        BindingContext = this;
+    }
+
+    protected override void OnAppearing()
     {
         base.OnAppearing();
 
+        RefreshFishkiList();
+    }
+
+    private async void RefreshFishkiList()
+    {
+        var temp = new ObservableCollection<FishkiSet>();
+        
         var apiResponse = await _apiService.GetAllSets();
+
         if (apiResponse != null)
         {
             foreach (var fishkiSet in apiResponse)
             {
-                Debug.WriteLine($"{fishkiSet.Name}, {fishkiSet.WordsCount}");
+                fishkiSet.FirstFlagIconSource = $"flag_{fishkiSet.FirstLanguage}.png";
+                fishkiSet.SecondFlagIconSource = $"flag_{fishkiSet.SecondLanguage}.png";
+                temp.Add(fishkiSet);
             }
         }
+
+        FishkiSets = temp;
+    }
+
+    public void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

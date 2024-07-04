@@ -19,5 +19,7 @@ namespace Fishki.Maui.Models
         public string SecondLanguage { get; set; }
         [JsonPropertyName("words_count")]
         public int WordsCount { get; set; }
+        public string FirstFlagIconSource { get; set; }
+        public string SecondFlagIconSource { get; set; }
     }
 }
