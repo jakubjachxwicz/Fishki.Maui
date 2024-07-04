@@ -26,8 +26,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".4*" />
-            <ColumnDefinition Width=".45*" />
-            <ColumnDefinition Width=".15*" />
+            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width=".2*" />
         </Grid.ColumnDefinitions>
 
         <Label Style="{StaticResource TitleLabel}"
@@ -47,19 +47,57 @@
         <Entry Grid.Row="1"
                Grid.Column="1"
                Grid.ColumnSpan="2"
-               Margin="20 ,0, 20, 0"/>
+               Margin="20 ,0, 20, 0"
+               FontAttributes="Bold"
+               FontSize="Medium"/>
 
         <Picker Grid.Row="2"
                 Grid.Column="1"
-                Margin="20 ,0, 20, 0"/>
+                Margin="20 ,0, 4, 0"
+                ItemsSource="{Binding Languages}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding FirstSelectedLanguage}"
+                SelectedIndexChanged="FirstLanguageChanged"
+                FontAttributes="Bold"
+                FontSize="Subtitle"/>
 
         <Picker Grid.Row="3"
                 Grid.Column="1"
-                Margin="20 ,0, 20, 0"/>
+                Margin="20 ,0, 4, 0"
+                ItemsSource="{Binding Languages}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SecondSelectedLanguage}"
+                SelectedIndexChanged="SecondLanguageChanged"
+                FontAttributes="Bold"
+                FontSize="Subtitle"/>
+
+        <Border Grid.Row="2" Grid.Column="2"
+                HeightRequest="40"
+                WidthRequest="57"
+                Stroke="White"
+                StrokeThickness="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="2" />
+            </Border.StrokeShape>
+            <Image Source="{Binding FirstFlagUri}"
+                   Aspect="Fill"/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="2"
+                HeightRequest="40"
+                WidthRequest="57"
+                Stroke="White"
+                StrokeThickness="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="2" />
+            </Border.StrokeShape>
+            <Image Source="{Binding SecondFlagUri}"
+                   Aspect="Fill"/>
+        </Border>
 
         <Button Text="Dodaj"
                 Grid.Row="5"
                 Style="{StaticResource BottomButton}"
+                Command="{Binding AddButtonCommand}"
                 Grid.ColumnSpan="3"/>
         <Button Text="Anuluj"
                 Grid.Row="6"

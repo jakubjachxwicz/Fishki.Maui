@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Fishki.Maui.Models
 {
-    class Language
+    public class Language
     {
+        public int Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
-        public string FlagIconUri { get => $"flag_{Code}.png"; }
+        // public string FlagIconUri { get => $"flag_{Code}.png"; set { } }
     }
 }
