@@ -44,7 +44,6 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 
         RefreshCommand = new Command(() =>
         {
-            Debug.WriteLine("pierdolone gówno");
             RefreshFishkiList();
             IsRefreshing = false;
         });
@@ -78,8 +77,6 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
         }
 
         FishkiSets = temp;
-
-        Debug.WriteLine("awjkdbawhj");
     }
 
     public void OnPropertyChanged(string propertyName)
