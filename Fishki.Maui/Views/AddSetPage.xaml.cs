@@ -1,4 +1,5 @@
 using Fishki.Maui.Models;
+using Fishki.Maui.Utils;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -12,6 +13,7 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
     public List<Language> Languages { get; set; }
     public Language FirstSelectedLanguage { get; set; }
     public Language SecondSelectedLanguage { get; set; }
+    public string FishkiName { get; set; }
     public string FirstFlagUri { get => $"flag_{FirstSelectedLanguage.Code}.png"; set { } }
     public string SecondFlagUri { get => $"flag_{SecondSelectedLanguage.Code}.png"; set { } }
 
@@ -63,7 +65,7 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
     {
         // DisplayAlert("alert", $"{FirstSelectedLanguage.Code}, {SecondSelectedLanguage.Code}", "OK");
         // OnPropertyChanged("FirstFlagUri");
-        DisplayAlert("alert", $"{FirstFlagUri}", "OK");
+        DisplayAlert("alert", $"{FishkiName}", "OK");
     }
 
     private void FirstLanguageChanged(object sender, EventArgs e)

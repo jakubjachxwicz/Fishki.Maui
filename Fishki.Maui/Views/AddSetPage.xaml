@@ -49,7 +49,8 @@
                Grid.ColumnSpan="2"
                Margin="20 ,0, 20, 0"
                FontAttributes="Bold"
-               FontSize="Medium"/>
+               FontSize="Medium"
+               Text="{Binding FishkiName}"/>
 
         <Picker Grid.Row="2"
                 Grid.Column="1"
