@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Fishki.Maui.Views.AddSetPage"
              Title="AddSetPage"
              Shell.NavBarIsVisible="False"
@@ -49,7 +50,17 @@
                Grid.ColumnSpan="2"
                Margin="20 ,0, 20, 0"
                FontAttributes="Bold"
-               FontSize="Medium"/>
+               FontSize="Medium"
+               Text="{Binding FishkiName}">
+            <Entry.Behaviors>
+                <toolkit:TextValidationBehavior 
+                    MinimumLength="1"
+                    MaximumLength="40"
+                    Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                    RegexPattern="^[a-zA-Z0-9 _\-ęóąśłżźćńĘÓĄŚŁŻŹĆŃ]*$"
+                    IsValid="{Binding NameEntryIsValid}"/>
+            </Entry.Behaviors>
+        </Entry>
 
         <Picker Grid.Row="2"
                 Grid.Column="1"

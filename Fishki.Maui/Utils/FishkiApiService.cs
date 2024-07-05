@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Fishki.Maui.Utils
 {
-    internal class FishkiApiService
+    public class FishkiApiService
     {
         private readonly HttpClient _httpClient;
 
@@ -25,6 +25,14 @@ namespace Fishki.Maui.Utils
                 return null;
 
             return await _httpClient.GetFromJsonAsync<List<FishkiSet>>("get_all_sets");
+        }
+
+        public async Task<HttpResponseMessage> AddSet(StringContent stringContent)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.PostAsync("create_set", stringContent);
         }
     }
 }

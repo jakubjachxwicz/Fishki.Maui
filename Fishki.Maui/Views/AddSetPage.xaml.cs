@@ -1,6 +1,9 @@
 using Fishki.Maui.Models;
+using Fishki.Maui.Utils;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.Text;
+using System.Text.Json.Nodes;
 
 namespace Fishki.Maui.Views;
 
@@ -12,8 +15,12 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
     public List<Language> Languages { get; set; }
     public Language FirstSelectedLanguage { get; set; }
     public Language SecondSelectedLanguage { get; set; }
+    public string FishkiName { get; set; }
     public string FirstFlagUri { get => $"flag_{FirstSelectedLanguage.Code}.png"; set { } }
     public string SecondFlagUri { get => $"flag_{SecondSelectedLanguage.Code}.png"; set { } }
+    public bool NameEntryIsValid { get; set; }
+
+    private readonly FishkiApiService _apiService = FishkiSetsPage._apiService;
 
     public AddSetPage()
 	{
@@ -59,11 +66,21 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
         BindingContext = this;
 	}
 
-    private void AddSet()
+    private async void AddSet()
     {
-        // DisplayAlert("alert", $"{FirstSelectedLanguage.Code}, {SecondSelectedLanguage.Code}", "OK");
-        // OnPropertyChanged("FirstFlagUri");
-        DisplayAlert("alert", $"{FirstFlagUri}", "OK");
+        //var json = new JsonObject();
+        //json.Add("name", FishkiName);
+        //json.Add("lang_1", FirstSelectedLanguage.Code);
+        //json.Add("lang_2", SecondSelectedLanguage.Code);
+
+        //var contect = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+        //var apiResponse = await _apiService.AddSet(contect);
+
+        //string message = await apiResponse.Content.ReadAsStringAsync();
+
+        //await DisplayAlert("alert", $"{message}", "OK");
+
+        await DisplayAlert("alert", $"{NameEntryIsValid}", "OK");
     }
 
     private void FirstLanguageChanged(object sender, EventArgs e)
