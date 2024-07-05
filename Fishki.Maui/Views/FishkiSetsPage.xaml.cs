@@ -11,7 +11,7 @@ namespace Fishki.Maui.Views;
 public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    private readonly FishkiApiService _apiService;
+    public static FishkiApiService _apiService;
     private ObservableCollection<FishkiSet> _fishkiSets;
     private bool _isRefresing;
     public ICommand RefreshCommand { get; set; }
