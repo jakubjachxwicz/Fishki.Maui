@@ -60,27 +60,42 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
 
         InitializeComponent();
 
-		CancelButtonCommand = new Command(() => Shell.Current.GoToAsync(".."));
-        AddButtonCommand = new Command(() => AddSet());
+		CancelButtonCommand = new Command(() => Shell.Current.GoToAsync("..?refresh=false"));
+        AddButtonCommand = new Command(AddSet);
 
         BindingContext = this;
 	}
 
     private async void AddSet()
     {
-        //var json = new JsonObject();
-        //json.Add("name", FishkiName);
-        //json.Add("lang_1", FirstSelectedLanguage.Code);
-        //json.Add("lang_2", SecondSelectedLanguage.Code);
+        if (!NameEntryIsValid)
+        {
+            await DisplayAlert("B³¹d", "Niepoprawne dane w polu \'Nazwa\'", "OK");
+            return;
+        }
 
-        //var contect = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-        //var apiResponse = await _apiService.AddSet(contect);
+        if (FirstSelectedLanguage.Id == 0 || SecondSelectedLanguage.Id == 0)
+        {
+            await DisplayAlert("B³¹d", "Nie wybrano jêzyka", "OK");
+            return;
+        }
 
-        //string message = await apiResponse.Content.ReadAsStringAsync();
+        if (FirstSelectedLanguage.Id < 27 && FirstSelectedLanguage.Id == SecondSelectedLanguage.Id)
+        {
+            await DisplayAlert("B³¹d", "Wybrane jêzyki s¹ takie same", "OK");
+            return;
+        }
 
-        //await DisplayAlert("alert", $"{message}", "OK");
+        var json = new JsonObject();
+        json.Add("name", FishkiName);
+        json.Add("lang_1", FirstSelectedLanguage.Code);
+        json.Add("lang_2", SecondSelectedLanguage.Code);
 
-        await DisplayAlert("alert", $"{NameEntryIsValid}", "OK");
+        var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+        await _apiService.AddSet(request);
+
+        await DisplayAlert("Komunikat", "Zestaw dodany pomyœlnie", "OK");
+        await Shell.Current.GoToAsync($"..?refresh=true");
     }
 
     private void FirstLanguageChanged(object sender, EventArgs e)

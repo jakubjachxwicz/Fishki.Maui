@@ -8,6 +8,7 @@ using System.Windows.Input;
 
 namespace Fishki.Maui.Views;
 
+[QueryProperty(nameof(ShouldBeRefreshed), "refresh")]
 public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
@@ -16,6 +17,7 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
     private bool _isRefresing;
     public ICommand RefreshCommand { get; set; }
     public ICommand AddSetCommand { get; set; }
+    public bool ShouldBeRefreshed { get; set; }
 
     public ObservableCollection<FishkiSet> FishkiSets
     {
@@ -26,6 +28,18 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
             OnPropertyChanged(nameof(FishkiSets));
         }
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (ShouldBeRefreshed)
+        {
+            ShouldBeRefreshed = false;
+            RefreshFishkiList();
+        }
+    }
+
     public bool IsRefreshing
     {
         get => _isRefresing;
