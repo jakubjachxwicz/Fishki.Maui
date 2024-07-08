@@ -12,7 +12,7 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
 	public ICommand CancelButtonCommand { get; set; }
 	public ICommand AddButtonCommand { get; set; }
-    public List<Language> Languages { get; set; }
+    // public List<Language> Languages { get; set; }
     public Language FirstSelectedLanguage { get; set; }
     public Language SecondSelectedLanguage { get; set; }
     public string FishkiName { get; set; }
@@ -24,63 +24,49 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
 
     public AddSetPage()
 	{
-        Languages = new List<Language>
-        {
-            new Language {Id = 1, Name = "Arabski", Code = "ae"},
-            new Language {Id = 2, Name = "Bu³garski", Code = "bg"},
-            new Language {Id = 3, Name = "Bia³oruski", Code = "by"},
-            new Language {Id = 4, Name = "Chiñski", Code = "cn"},
-            new Language {Id = 5, Name = "Czeski", Code = "cz"},
-            new Language {Id = 6, Name = "Niemiecki", Code = "de"},
-            new Language {Id = 7, Name = "Duñski", Code = "dk"},
-            new Language {Id = 8, Name = "Angielski", Code = "en"},
-            new Language {Id = 9, Name = "Hiszpañski", Code = "es"},
-            new Language {Id = 10, Name = "Fiñski", Code = "fi"},
-            new Language {Id = 11, Name = "Francuski", Code = "fr"},
-            new Language {Id = 12, Name = "Grecki", Code = "gr"},
-            new Language {Id = 13, Name = "Chorwacki", Code = "hr"},
-            new Language {Id = 14, Name = "Wêgierski", Code = "hu"},
-            new Language {Id = 15, Name = "Islandzki", Code = "is"},
-            new Language {Id = 16, Name = "W³oski", Code = "it"},
-            new Language {Id = 17, Name = "Japoñski", Code = "jp"},
-            new Language {Id = 18, Name = "Koreañski", Code = "kr"},
-            new Language {Id = 19, Name = "Niderlandzki", Code = "nl"},
-            new Language {Id = 20, Name = "Norwedzki", Code = "no"},
-            new Language {Id = 21, Name = "Polski", Code = "pl"},
-            new Language {Id = 22, Name = "Portugalski", Code = "pt"},
-            new Language {Id = 23, Name = "Rosyjski", Code = "ru"},
-            new Language {Id = 24, Name = "Szwedzki", Code = "se"},
-            new Language {Id = 25, Name = "Turecki", Code = "tr"},
-            new Language {Id = 26, Name = "Ukraiñski", Code = "ua"},
-            new Language {Id = 27, Name = "Inny", Code = "xx"},
-        };
+        var Langs = Languages.List;
 
         FirstSelectedLanguage = new Language();
         SecondSelectedLanguage = new Language();
 
         InitializeComponent();
 
-		CancelButtonCommand = new Command(() => Shell.Current.GoToAsync(".."));
-        AddButtonCommand = new Command(() => AddSet());
+		CancelButtonCommand = new Command(() => Shell.Current.GoToAsync("..?refresh=false"));
+        AddButtonCommand = new Command(AddSet);
 
         BindingContext = this;
 	}
 
     private async void AddSet()
     {
-        //var json = new JsonObject();
-        //json.Add("name", FishkiName);
-        //json.Add("lang_1", FirstSelectedLanguage.Code);
-        //json.Add("lang_2", SecondSelectedLanguage.Code);
+        if (!NameEntryIsValid)
+        {
+            await DisplayAlert("B³¹d", "Niepoprawne dane w polu \'Nazwa\'", "OK");
+            return;
+        }
 
-        //var contect = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-        //var apiResponse = await _apiService.AddSet(contect);
+        if (FirstSelectedLanguage.Id == 0 || SecondSelectedLanguage.Id == 0)
+        {
+            await DisplayAlert("B³¹d", "Nie wybrano jêzyka", "OK");
+            return;
+        }
 
-        //string message = await apiResponse.Content.ReadAsStringAsync();
+        if (FirstSelectedLanguage.Id < 27 && FirstSelectedLanguage.Id == SecondSelectedLanguage.Id)
+        {
+            await DisplayAlert("B³¹d", "Wybrane jêzyki s¹ takie same", "OK");
+            return;
+        }
 
-        //await DisplayAlert("alert", $"{message}", "OK");
+        var json = new JsonObject();
+        json.Add("name", FishkiName);
+        json.Add("lang_1", FirstSelectedLanguage.Code);
+        json.Add("lang_2", SecondSelectedLanguage.Code);
 
-        await DisplayAlert("alert", $"{NameEntryIsValid}", "OK");
+        var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+        await _apiService.AddSet(request);
+
+        await DisplayAlert("Komunikat", "Zestaw dodany pomyœlnie", "OK");
+        await Shell.Current.GoToAsync($"..?refresh=true");
     }
 
     private void FirstLanguageChanged(object sender, EventArgs e)
