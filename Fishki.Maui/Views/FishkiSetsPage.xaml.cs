@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Input;
+using System.Xml.Serialization;
 
 namespace Fishki.Maui.Views;
 
@@ -17,6 +18,7 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
     private bool _isRefresing;
     public ICommand RefreshCommand { get; set; }
     public ICommand AddSetCommand { get; set; }
+    public ICommand ItemClickedCommand => new Command(ItemClickedHandler);
     public bool ShouldBeRefreshed { get; set; }
 
     public ObservableCollection<FishkiSet> FishkiSets
@@ -64,9 +66,16 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
         });
 
         AddSetCommand = new Command(() => Shell.Current.GoToAsync(nameof(AddSetPage)));
+
         BindingContext = this;
 
         RefreshFishkiList();
+    }
+
+    private void ItemClickedHandler(object obj)
+    {
+        var item = (FishkiSet)obj;
+        Shell.Current.GoToAsync($"FishkiDetailsPage?id={item.SetId}");
     }
 
     private async void RefreshFishkiList()

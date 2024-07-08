@@ -2,11 +2,89 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fishki.Maui.Views.FishkiDetailsPage"
-             Title="FishkiDetailsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="FishkiDetailsPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowSpacing="8" Margin="8" ColumnSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource TitleLabel}"
+               Text="{Binding FishkiSetName}"
+               Grid.ColumnSpan="2"/>
+
+        <Border Grid.Row="1"
+                HeightRequest="40"
+                WidthRequest="57"
+                Stroke="#4b4b4b"
+                StrokeThickness="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="2" />
+            </Border.StrokeShape>
+            <Image Source="{Binding FirstFlagUri}" Aspect="Fill"/>
+        </Border>
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="40"
+                WidthRequest="57"
+                Stroke="#4b4b4b"
+                StrokeThickness="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="2" />
+            </Border.StrokeShape>
+            <Image Source="{Binding SecondFlagUri}" Aspect="Fill"/>
+        </Border>
+
+        <Label Grid.Row="2"
+               HorizontalTextAlignment="Center"
+               FontSize="Medium"
+               Text="{Binding FirstLanguageName}"/>
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               HorizontalTextAlignment="Center"
+               FontSize="Medium"
+               Text="{Binding SecondLanguageName}"/>
+
+        <Label Text="{Binding WordsCount}"
+               Grid.Row="3"
+               Grid.ColumnSpan="2"
+               HorizontalTextAlignment="Center"/>
+
+        <Button Text="Ucz się"
+                Grid.Row="5"/>
+        <Button Text="Ucz się (losowo)"
+                Grid.Row="5"
+                Grid.Column="1"/>
+
+        <Button Text="Lista słówek"
+                Grid.Row="6"/>
+        <Button Text="Zarządzaj słówkami"
+                Grid.Row="6"
+                Grid.Column="1"/>
+
+        <Button Text="Edytuj zestaw"
+                Grid.Row="7"/>
+        <Button Text="Usuń zestaw"
+                Grid.Row="7"
+                Grid.Column="1"/>
+        <Button Text="Powrót"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding ReturnButtonCommand}"
+                Grid.Row="9"
+                Grid.ColumnSpan="2"/>
+    </Grid>
 </ContentPage>

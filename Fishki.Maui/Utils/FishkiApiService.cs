@@ -19,6 +19,22 @@ namespace Fishki.Maui.Utils
             _httpClient.BaseAddress = new Uri(Constants.URI_BASE);
         }
 
+        public async Task<FishkiSet> GetSet(int setId)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.GetFromJsonAsync<FishkiSet>($"get_set?set_id={setId}");
+        }
+
+        public async Task<List<Words>> GetWords(int setId)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.GetFromJsonAsync<List<Words>>($"get_words?set_id={setId}");
+        }
+
         public async Task<List<FishkiSet>> GetAllSets()
         {
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)

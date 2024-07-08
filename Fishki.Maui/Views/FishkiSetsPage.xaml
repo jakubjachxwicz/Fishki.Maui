@@ -18,7 +18,10 @@
                      IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}">
             <CollectionView x:Name="lVwFishkiSets"
-                ItemsSource="{Binding FishkiSets}">
+                            ItemsSource="{Binding FishkiSets}"
+                            SelectionMode="Single"
+                            SelectionChangedCommand="{Binding ItemClickedCommand}"
+                            SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
