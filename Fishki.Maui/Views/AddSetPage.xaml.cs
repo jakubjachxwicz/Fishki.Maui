@@ -12,7 +12,7 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
 	public ICommand CancelButtonCommand { get; set; }
 	public ICommand AddButtonCommand { get; set; }
-    // public List<Language> Languages { get; set; }
+    public List<Language> LanguagesList { get; set; }
     public Language FirstSelectedLanguage { get; set; }
     public Language SecondSelectedLanguage { get; set; }
     public string FishkiName { get; set; }
@@ -24,7 +24,7 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
 
     public AddSetPage()
 	{
-        var Langs = Languages.List;
+        LanguagesList = Languages.List;
 
         FirstSelectedLanguage = new Language();
         SecondSelectedLanguage = new Language();
