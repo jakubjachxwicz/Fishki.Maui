@@ -6,12 +6,27 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="#e5e5e5">
 
+    <ContentPage.Resources>
+        <Style TargetType="ContentView">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
 
     <Grid RowDefinitions="70, *, 60" Margin="8">
         <Label Style="{StaticResource TitleLabel}"
                Text="Twoje zestawy Fishek"/>
-
-        <!--<Image Source="FlagIcons/flag_pl.png" />-->
 
         <RefreshView Grid.Row="1"
                      RefreshColor="#43c000"
@@ -38,6 +53,7 @@
                                             Offset="15, 15"
                                             Radius="10"/>
                                 </Border.Shadow>
+
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -49,6 +65,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="1.4*" />
                                     </Grid.RowDefinitions>
+                                    
                                     <Label Grid.RowSpan="3" Text="{Binding Name}"
                                            VerticalOptions="Center"
                                            FontSize="Body"
