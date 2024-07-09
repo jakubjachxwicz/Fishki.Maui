@@ -27,6 +27,7 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
     public string FirstFlagUri { get => $"flag_{CurrentSet.FirstLanguage}.png"; set { } }
     public string SecondFlagUri { get => $"flag_{CurrentSet.SecondLanguage}.png"; set { } }
 	public ICommand ReturnButtonCommand => new Command(() => Shell.Current.GoToAsync("..?refresh=false"));
+	public ICommand DeleteFishkiCommand => new Command(DeleteFishkiSet);
     public FishkiSet CurrentSet { get; set; }
     public List<Words> WordsList { get; set; }
 
@@ -76,6 +77,15 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 
 	}
 
+	private async void DeleteFishkiSet()
+	{
+        bool answer = await DisplayAlert("Uwaga", "Czy chcesz usun¹æ ten zestaw Fishek?", "Tak", "Nie");
+		if (!answer)
+			return;
+
+		await _apiService.DeleteSet(SetId);
+		await Shell.Current.GoToAsync("..?refresh=true");
+    }
 
     private void OnPropertyChanged(string name)
 	{

@@ -50,5 +50,13 @@ namespace Fishki.Maui.Utils
 
             return await _httpClient.PostAsync("create_set", stringContent);
         }
+
+        public async Task<HttpResponseMessage> DeleteSet(int setId)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.DeleteAsync($"delete_set?set_id={setId}");
+        }
     }
 }

@@ -105,6 +105,7 @@
                 Grid.Row="7"/>
         <Button Text="Usuń zestaw"
                 Style="{StaticResource CustomButton}"
+                Command="{Binding DeleteFishkiCommand}"
                 Grid.Row="7"
                 Grid.Column="1"/>
         <Button Text="Powrót"
