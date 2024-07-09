@@ -5,6 +5,25 @@
              Title="FishkiDetailsPage"
              Shell.NavBarIsVisible="False">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="CustomButton">
+                <Setter Property="BackgroundColor" Value="#ffc200" />
+                <Setter Property="TextColor" Value="#B66E28" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="0, 0, 0, 4" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="#F49000"
+                                Offset="0, 16"
+                                Radius="5"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid RowSpacing="8" Margin="8" ColumnSpacing="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
@@ -12,9 +31,9 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="2*" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
@@ -65,20 +84,27 @@
                HorizontalTextAlignment="Center"/>
 
         <Button Text="Ucz się"
-                Grid.Row="5"/>
+                Style="{StaticResource CustomButton}"
+                Grid.Row="5">
+        </Button>
         <Button Text="Ucz się (losowo)"
+                Style="{StaticResource CustomButton}"
                 Grid.Row="5"
                 Grid.Column="1"/>
 
         <Button Text="Lista słówek"
+                Style="{StaticResource CustomButton}"
                 Grid.Row="6"/>
         <Button Text="Zarządzaj słówkami"
+                Style="{StaticResource CustomButton}"
                 Grid.Row="6"
                 Grid.Column="1"/>
 
         <Button Text="Edytuj zestaw"
+                Style="{StaticResource CustomButton}"
                 Grid.Row="7"/>
         <Button Text="Usuń zestaw"
+                Style="{StaticResource CustomButton}"
                 Grid.Row="7"
                 Grid.Column="1"/>
         <Button Text="Powrót"
