@@ -9,58 +9,19 @@ namespace Fishki.Maui.Views;
 
 public partial class AddSetPage : ContentPage, INotifyPropertyChanged
 {
-    public event PropertyChangedEventHandler PropertyChanged;
-	public ICommand CancelButtonCommand { get; set; }
-	public ICommand AddButtonCommand { get; set; }
-    public List<Language> LanguagesList { get; set; }
-    public Language FirstSelectedLanguage { get; set; }
-    public Language SecondSelectedLanguage { get; set; }
-    public string FishkiName { get; set; }
-    public string FirstFlagUri { get => $"flag_{FirstSelectedLanguage.Code}.png"; set { } }
-    public string SecondFlagUri { get => $"flag_{SecondSelectedLanguage.Code}.png"; set { } }
-    public bool NameEntryIsValid { get; set; }
-
     private readonly FishkiApiService _apiService = FishkiSetsPage._apiService;
 
     public AddSetPage()
 	{
-        LanguagesList = Languages.List;
-
-        FirstSelectedLanguage = new Language();
-        SecondSelectedLanguage = new Language();
-
         InitializeComponent();
-
-		CancelButtonCommand = new Command(() => Shell.Current.GoToAsync("..?refresh=false"));
-        AddButtonCommand = new Command(AddSet);
-
-        BindingContext = this;
 	}
 
-    private async void AddSet()
+    private async void OnSaveHandler(object sender, EventArgs e)
     {
-        if (!NameEntryIsValid)
-        {
-            await DisplayAlert("B³¹d", "Niepoprawne dane w polu \'Nazwa\'", "OK");
-            return;
-        }
-
-        if (FirstSelectedLanguage.Id == 0 || SecondSelectedLanguage.Id == 0)
-        {
-            await DisplayAlert("B³¹d", "Nie wybrano jêzyka", "OK");
-            return;
-        }
-
-        if (FirstSelectedLanguage.Id < 27 && FirstSelectedLanguage.Id == SecondSelectedLanguage.Id)
-        {
-            await DisplayAlert("B³¹d", "Wybrane jêzyki s¹ takie same", "OK");
-            return;
-        }
-
         var json = new JsonObject();
-        json.Add("name", FishkiName);
-        json.Add("lang_1", FirstSelectedLanguage.Code);
-        json.Add("lang_2", SecondSelectedLanguage.Code);
+        json.Add("name", FishkiControl.FishkiName);
+        json.Add("lang_1", FishkiControl.FirstSelectedLanguage.Code);
+        json.Add("lang_2", FishkiControl.SecondSelectedLanguage.Code);
 
         var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
         await _apiService.AddSet(request);
@@ -69,18 +30,13 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
         await Shell.Current.GoToAsync($"..?refresh=true");
     }
 
-    private void FirstLanguageChanged(object sender, EventArgs e)
+    private void OnCancelHandler(object sender, EventArgs e)
     {
-        OnPropertyChanged("FirstFlagUri");
+        Shell.Current.GoToAsync("..?refresh=false");
     }
 
-    private void SecondLanguageChanged(object sender, EventArgs e)
+    private void OnErrorHandler(object sender, string e)
     {
-        OnPropertyChanged("SecondFlagUri");
-    }
-
-    public void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        DisplayAlert("B³¹d", e, "OK");
     }
 }

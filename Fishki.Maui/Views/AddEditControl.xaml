@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Fishki.Maui.Views.AddEditControl">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LeftSideLbl">
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="#4b4b4b" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid Margin="8" RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width=".2*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource TitleLabel}"
+           Grid.ColumnSpan="3"
+           Text="Zarządzaj zestawem Fishek"/>
+
+        <Label Text="Nazwa:"
+           Grid.Row="1"
+           Style="{StaticResource LeftSideLbl}"/>
+        <Label Text="Pierwszy język:"
+           Grid.Row="2"
+           Style="{StaticResource LeftSideLbl}"/>
+        <Label Text="Drugi język:"
+           Grid.Row="3"
+           Style="{StaticResource LeftSideLbl}"/>
+
+        <OnPlatform x:TypeArguments="Entry">
+            <On Platform="Android">
+                <Entry Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Margin="20 ,0, 20, 0"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="#242424"
+                   Text="{Binding FishkiName}">
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+                        MinimumLength="1"
+                        MaximumLength="40"
+                        Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                        RegexPattern="^[a-zA-Z0-9 _\-ęóąśłżźćńĘÓĄŚŁŻŹĆŃ]*$"
+                        IsValid="{Binding NameEntryIsValid}"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </On>
+            <On Platform="WinUI">
+                <Entry
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Margin="20 ,0, 20, 0"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="#242424"
+                   BackgroundColor="#d6d4d4"
+                   Text="{Binding FishkiName}">
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+                        MinimumLength="1"
+                        MaximumLength="40"
+                        Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                        RegexPattern="^[a-zA-Z0-9 _\-ęóąśłżźćńĘÓĄŚŁŻŹĆŃ]*$"
+                        IsValid="{Binding NameEntryIsValid}"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </On>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Picker">
+            <On Platform="Android">
+                <Picker Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="20, 0, 4, 0"
+                    TextColor="#242424"
+                    ItemsSource="{Binding LanguagesList}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding FirstSelectedLanguage}"
+                    SelectedIndexChanged="FirstLanguageChanged"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"/>
+            </On>
+            <On Platform="WinUI">
+                <Picker Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="20, 0, 4, 0"
+                    BackgroundColor="#d6d4d4"
+                    TextColor="#242424"
+                    ItemsSource="{Binding LanguagesList}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding FirstSelectedLanguage}"
+                    SelectedIndexChanged="FirstLanguageChanged"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"/>
+            </On>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Picker">
+            <On Platform="Android">
+                <Picker Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="20, 0, 4, 0"
+                    TextColor="#242424"
+                    ItemsSource="{Binding LanguagesList}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SecondSelectedLanguage}"
+                    SelectedIndexChanged="SecondLanguageChanged"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"/>
+            </On>
+            <On Platform="WinUI">
+                <Picker Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="20, 0, 4, 0"
+                    BackgroundColor="#d6d4d4"
+                    TextColor="#242424"
+                    ItemsSource="{Binding LanguagesList}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SecondSelectedLanguage}"
+                    SelectedIndexChanged="SecondLanguageChanged"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"/>
+            </On>
+        </OnPlatform>
+
+        <Border Grid.Row="2" Grid.Column="2"
+            HeightRequest="40"
+            WidthRequest="57"
+            Stroke="White"
+            StrokeThickness="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="2" />
+            </Border.StrokeShape>
+            <Image Source="{Binding FirstFlagUri}"
+               Aspect="Fill"/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="2"
+            HeightRequest="40"
+            WidthRequest="57"
+            Stroke="White"
+            StrokeThickness="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="2" />
+            </Border.StrokeShape>
+            <Image Source="{Binding SecondFlagUri}"
+               Aspect="Fill"/>
+        </Border>
+
+        <Button Text="Zapisz"
+            Grid.Row="5"
+            Style="{StaticResource BottomButton}"
+            Command="{Binding SaveButtonCommand}"
+            Grid.ColumnSpan="3"/>
+        <Button Text="Anuluj"
+            Grid.Row="6"
+            Grid.ColumnSpan="3"
+            Style="{StaticResource BottomButton}"
+            Command="{Binding CancelButtonCommand}"/>
+    </Grid>
+</ContentView>
