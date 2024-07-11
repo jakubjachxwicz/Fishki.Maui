@@ -26,8 +26,9 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
     public string SecondLanguageName { get => Languages.List.Find((x) => x.Code == CurrentSet.SecondLanguage).Name.ToLower(); set { } }
     public string FirstFlagUri { get => $"flag_{CurrentSet.FirstLanguage}.png"; set { } }
     public string SecondFlagUri { get => $"flag_{CurrentSet.SecondLanguage}.png"; set { } }
-	public ICommand ReturnButtonCommand => new Command(() => Shell.Current.GoToAsync("..?refresh=false"));
+	public ICommand ReturnButtonCommand => new Command(() => Shell.Current.GoToAsync(".."));
 	public ICommand DeleteFishkiCommand => new Command(DeleteFishkiSet);
+	public ICommand EditButtonCommand => new Command(EditButtonHandler);
     public FishkiSet CurrentSet { get; set; }
     public List<Words> WordsList { get; set; }
 
@@ -84,7 +85,14 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 			return;
 
 		await _apiService.DeleteSet(SetId);
-		await Shell.Current.GoToAsync("..?refresh=true");
+		FishkiSetsPage.ShouldBeRefreshed = true;
+		await Shell.Current.GoToAsync("..");
+    }
+
+	private void EditButtonHandler()
+	{
+        Shell.Current.GoToAsync($"{nameof(EditFishkiSetPage)}?set_id={SetId}&name={FishkiSetName}&lang_1={CurrentSet.FirstLanguage}&lang_2={CurrentSet.SecondLanguage}");
+        //Shell.Current.GoToAsync($"{nameof(EditFishkiSetPage)}");
     }
 
     private void OnPropertyChanged(string name)

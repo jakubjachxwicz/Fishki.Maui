@@ -11,10 +11,37 @@ public partial class AddEditControl : ContentView, INotifyPropertyChanged
     public event EventHandler<string> OnError;
     public event EventHandler<EventArgs> OnSave;
     public event EventHandler<EventArgs> OnCancel;
-    public string FishkiName { get; set; }
+    private string _fishkiName;
+    public string FishkiName
+    {
+        get => _fishkiName;
+        set
+        {
+            _fishkiName = value;
+            OnPropertyChanged(nameof(FishkiName));
+        }
+    }
     public List<Language> LanguagesList { get; set; }
-    public Language FirstSelectedLanguage { get; set; }
-    public Language SecondSelectedLanguage { get; set; }
+    private Language _firstLanguage;
+    public Language FirstSelectedLanguage
+    {
+        get => _firstLanguage;
+        set
+        {
+            _firstLanguage = value;
+            OnPropertyChanged(nameof(FirstSelectedLanguage));
+        }
+    }
+    private Language _secondLanguage;
+    public Language SecondSelectedLanguage
+    {
+        get => _secondLanguage;
+        set
+        {
+            _secondLanguage = value;
+            OnPropertyChanged(nameof(SecondSelectedLanguage));
+        }
+    }
     public string FirstFlagUri { get => $"flag_{FirstSelectedLanguage.Code}.png"; set { } }
     public string SecondFlagUri { get => $"flag_{SecondSelectedLanguage.Code}.png"; set { } }
     public ICommand SaveButtonCommand => new Command(SaveButtonHandler);
