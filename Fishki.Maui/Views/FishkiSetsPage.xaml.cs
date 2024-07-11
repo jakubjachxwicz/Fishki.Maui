@@ -34,6 +34,8 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
     {
         base.OnAppearing();
 
+        FishkiDetailsPage.ShouldBeRefreshed = true;
+
         if (ShouldBeRefreshed)
         {
             ShouldBeRefreshed = false;

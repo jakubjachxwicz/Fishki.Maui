@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fishki.Maui.Views.WordsListPage"
+             Title="WordsListPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="WordDisplayLabel">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0, 16, 0, 16" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="0, 0, 0, 8"
+          RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <CollectionView ItemsSource="{Binding WordsList}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding First}"
+                                   Style="{StaticResource WordDisplayLabel}"/>
+
+                            <BoxView Grid.Column="1"
+                                     Grid.RowSpan="2"
+                                     BackgroundColor="Silver"/>
+
+                            <Label Text="{Binding Second}"
+                                   Grid.Column="2"
+                                   Style="{StaticResource WordDisplayLabel}"/>
+
+                            <BoxView Grid.ColumnSpan="3"
+                                     Grid.Row="1"
+                                     BackgroundColor="Silver"/>
+                        </Grid>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Style="{StaticResource BottomButton}"
+                Grid.Row="1"
+                Text="Powrót"
+                Command="{Binding ReturnButtonCommand}"
+                Margin="8"/>
+    </Grid>
+</ContentPage>
