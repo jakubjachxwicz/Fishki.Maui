@@ -50,6 +50,7 @@ public partial class EditFishkiSetPage : ContentPage, IQueryAttributable
 
         await DisplayAlert("Komunikat", "Zestaw zaktualizowany pomyœlnie", "OK");
         FishkiSetsPage.ShouldBeRefreshed = true;
+        FishkiDetailsPage.ShouldBeRefreshed = true;
         await Shell.Current.GoToAsync("..");
     }
 

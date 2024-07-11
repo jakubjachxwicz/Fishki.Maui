@@ -10,6 +10,7 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 {
 	public event PropertyChangedEventHandler PropertyChanged;
     private readonly FishkiApiService _apiService = FishkiSetsPage._apiService;
+	public static bool ShouldBeRefreshed { get; set; } = true;
     private int _setId;
 	public int SetId
 	{ 
@@ -29,8 +30,9 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 	public ICommand ReturnButtonCommand => new Command(() => Shell.Current.GoToAsync(".."));
 	public ICommand DeleteFishkiCommand => new Command(DeleteFishkiSet);
 	public ICommand EditButtonCommand => new Command(EditButtonHandler);
+	public ICommand WordsListCommand => new Command(() => Shell.Current.GoToAsync(nameof(WordsListPage)));
     public FishkiSet CurrentSet { get; set; }
-    public List<Words> WordsList { get; set; }
+    public static List<Words> WordsList { get; set; }
 
     public FishkiDetailsPage()
 	{
@@ -51,8 +53,13 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
     {
         base.OnAppearing();
 
-		GetSetInfo();
-		GetWordsList();
+		if (ShouldBeRefreshed)
+		{
+			ShouldBeRefreshed = false;
+
+            GetSetInfo();
+            GetWordsList();
+        }
     }
 
 
@@ -75,7 +82,19 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 
 	private async void GetWordsList()
 	{
+		List<Words> temp = new List<Words>();
 
+		var apiResponse = await _apiService.GetWords(SetId);
+
+		if (apiResponse != null)
+		{
+			foreach (var words in apiResponse)
+			{
+				temp.Add(words);
+			}
+		}
+
+		WordsList = temp;
 	}
 
 	private async void DeleteFishkiSet()

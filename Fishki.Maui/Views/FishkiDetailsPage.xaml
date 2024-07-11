@@ -94,6 +94,7 @@
 
         <Button Text="Lista słówek"
                 Style="{StaticResource CustomButton}"
+                Command="{Binding WordsListCommand}"
                 Grid.Row="6"/>
         <Button Text="Zarządzaj słówkami"
                 Style="{StaticResource CustomButton}"

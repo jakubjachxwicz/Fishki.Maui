@@ -12,6 +12,7 @@ namespace Fishki.Maui
             Routing.RegisterRoute(nameof(FishkiDetailsPage), typeof(FishkiDetailsPage));
             Routing.RegisterRoute(nameof(AddSetPage), typeof(AddSetPage));
             Routing.RegisterRoute(nameof(EditFishkiSetPage), typeof(EditFishkiSetPage));
+            Routing.RegisterRoute(nameof(WordsListPage), typeof(WordsListPage));
         }
     }
 }
