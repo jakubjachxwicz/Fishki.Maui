@@ -2,6 +2,7 @@
 using Fishki.Maui.Vulnerable;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
@@ -57,6 +58,14 @@ namespace Fishki.Maui.Utils
                 return null;
 
             return await _httpClient.DeleteAsync($"delete_set?set_id={setId}");
+        }
+
+        public async Task<HttpResponseMessage> UpdateSet(StringContent stringContent, int setId)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.PatchAsync($"update_set?set_id={setId}", stringContent);
         }
     }
 }

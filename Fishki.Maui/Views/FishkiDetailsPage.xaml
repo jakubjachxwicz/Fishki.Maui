@@ -102,7 +102,8 @@
 
         <Button Text="Edytuj zestaw"
                 Style="{StaticResource CustomButton}"
-                Grid.Row="7"/>
+                Grid.Row="7"
+                Command="{Binding EditButtonCommand}"/>
         <Button Text="Usuń zestaw"
                 Style="{StaticResource CustomButton}"
                 Command="{Binding DeleteFishkiCommand}"

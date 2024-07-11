@@ -27,12 +27,13 @@ public partial class AddSetPage : ContentPage, INotifyPropertyChanged
         await _apiService.AddSet(request);
 
         await DisplayAlert("Komunikat", "Zestaw dodany pomyœlnie", "OK");
-        await Shell.Current.GoToAsync($"..?refresh=true");
+        FishkiSetsPage.ShouldBeRefreshed = true;
+        await Shell.Current.GoToAsync($"..");
     }
 
     private void OnCancelHandler(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..?refresh=false");
+        Shell.Current.GoToAsync("..");
     }
 
     private void OnErrorHandler(object sender, string e)
