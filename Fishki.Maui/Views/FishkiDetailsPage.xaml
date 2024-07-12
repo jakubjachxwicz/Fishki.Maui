@@ -98,6 +98,7 @@
                 Grid.Row="6"/>
         <Button Text="Zarządzaj słówkami"
                 Style="{StaticResource CustomButton}"
+                Command="{Binding ManageWordsButtonCommand}"
                 Grid.Row="6"
                 Grid.Column="1"/>
 

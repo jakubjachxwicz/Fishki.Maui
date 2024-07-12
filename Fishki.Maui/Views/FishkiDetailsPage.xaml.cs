@@ -31,6 +31,7 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 	public ICommand DeleteFishkiCommand => new Command(DeleteFishkiSet);
 	public ICommand EditButtonCommand => new Command(EditButtonHandler);
 	public ICommand WordsListCommand => new Command(() => Shell.Current.GoToAsync(nameof(WordsListPage)));
+	public ICommand ManageWordsButtonCommand => new Command(ManageWordsButtonHandler);
     public FishkiSet CurrentSet { get; set; }
     public static List<Words> WordsList { get; set; }
 
@@ -111,8 +112,12 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 	private void EditButtonHandler()
 	{
         Shell.Current.GoToAsync($"{nameof(EditFishkiSetPage)}?set_id={SetId}&name={FishkiSetName}&lang_1={CurrentSet.FirstLanguage}&lang_2={CurrentSet.SecondLanguage}");
-        //Shell.Current.GoToAsync($"{nameof(EditFishkiSetPage)}");
     }
+
+	private void ManageWordsButtonHandler()
+	{
+		Shell.Current.GoToAsync($"{nameof(ManageWordsPage)}?set_id={SetId}&lang_1={FirstLanguageName}&lang_2={SecondLanguageName}");
+	}
 
     private void OnPropertyChanged(string name)
 	{

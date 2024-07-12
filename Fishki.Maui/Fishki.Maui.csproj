@@ -114,6 +114,9 @@
 	  <MauiXaml Update="Views\FishkiSetsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ManageWordsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\WordsListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fishki.Maui.Views.ManageWordsPage"
+             Title="ManageWordsPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="WordDisplayLabel">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0, 16, 0, 16" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="0, 0, 0, 8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <CollectionView ItemsSource="{Binding WordsList}"
+                        x:Name="collectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Source={x:Reference collectionView}, Path=BindingContext.FirstDisplayLanguage}"
+                                   Margin="4, 2, 0, 0"
+                                   VerticalOptions="End"/>
+                            <Entry Grid.Row="1"
+                                   Text="{Binding First}"
+                                   FontSize="Medium">
+                            </Entry>
+
+                            <BoxView Grid.Column="1"
+                                     Grid.RowSpan="2"
+                                     BackgroundColor="SlateGray"/>
+
+                            <Label Text="{Binding Source={x:Reference collectionView}, Path=BindingContext.SecondDisplayLanguage}"
+                                   Grid.Column="2"
+                                   VerticalOptions="End"
+                                   Margin="4, 2, 0, 0"/>
+                            <Entry Grid.Row="1"
+                                   Grid.Column="2"
+                                   Text="{Binding Second}"
+                                   FontSize="Medium">
+                            </Entry>
+
+                            <BoxView Grid.ColumnSpan="4"
+                                     Grid.Row="2"
+                                     BackgroundColor="SlateGray"/>
+
+                            <ImageButton Grid.Column="3"
+                                         Source="ok_icon.png"
+                                         WidthRequest="32"
+                                         HeightRequest="32"
+                                         Margin="2"
+                                         Clicked="UpdateWordsHandler"
+                                         CommandParameter="{Binding .}"/>
+                            <ImageButton Grid.Column="3"
+                                         Margin="2"
+                                         WidthRequest="32"
+                                         HeightRequest="32"
+                                         Source="delete_icon.png"
+                                         Grid.Row="1"
+                                         Clicked="DeleteWordsHandler"
+                                         CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="1" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.ColumnSpan="2"
+                   Text="Dodaj nowe słówka:"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"
+                   FontSize="Large"
+                   Margin="0, 6, 0, 12"/>
+
+            <Label Text="{Binding FirstDisplayLanguage}"
+                   VerticalTextAlignment="End"
+                   Grid.Row="1"/>
+            <Label Text="{Binding SecondDisplayLanguage}"
+                   VerticalTextAlignment="End"
+                   Grid.Column="1"
+                   Grid.Row="1"/>
+
+            <Entry Grid.Row="2"
+                   Text="{Binding FirstNewWordsEntry}"
+                   VerticalOptions="End"
+                   FontSize="Medium">
+            </Entry>
+            <Entry Grid.Row="2"
+                   Grid.Column="1"
+                   Text="{Binding SecondNewWordsEntry}"
+                   VerticalOptions="End"
+                   FontSize="Medium">
+            </Entry>
+
+            <Button Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    Text="Dodaj słówka"
+                    WidthRequest="200"
+                    BackgroundColor="#43c000"
+                    Command="{Binding AddWordsCommand}">
+                <Button.Shadow>
+                    <Shadow Brush="#338c01"
+                            Offset="15, 15"
+                            Radius="10"/>
+                </Button.Shadow>
+            </Button>
+        </Grid>
+
+        <Button Grid.Row="2"
+                Style="{StaticResource BottomButton}"
+                Text="Powrót"
+                Command="{Binding ReturnButtonCommand}"
+                Margin="8"/>
+    </Grid>
+</ContentPage>
