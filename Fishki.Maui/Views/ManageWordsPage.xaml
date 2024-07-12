@@ -70,13 +70,17 @@
                                          Source="ok_icon.png"
                                          WidthRequest="32"
                                          HeightRequest="32"
-                                         Margin="2"/>
+                                         Margin="2"
+                                         Clicked="UpdateWordsHandler"
+                                         CommandParameter="{Binding .}"/>
                             <ImageButton Grid.Column="3"
                                          Margin="2"
                                          WidthRequest="32"
                                          HeightRequest="32"
                                          Source="delete_icon.png"
-                                         Grid.Row="1"/>
+                                         Grid.Row="1"
+                                         Clicked="DeleteWordsHandler"
+                                         CommandParameter="{Binding .}"/>
                         </Grid>
                     </ContentView>
                 </DataTemplate>

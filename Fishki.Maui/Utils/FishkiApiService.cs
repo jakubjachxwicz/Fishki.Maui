@@ -75,5 +75,21 @@ namespace Fishki.Maui.Utils
 
             return await _httpClient.PostAsync($"add_words?set_id={setId}", stringContent);
         }
+
+        public async Task<HttpResponseMessage> DeleteWords(int setId, int wordsId)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.DeleteAsync($"delete_words?set_id={setId}&words_id={wordsId}");
+        }
+
+        public async Task<HttpResponseMessage> UpdateWords(int setId, int wordsId, StringContent stringContent)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.PatchAsync($"update_words?set_id={setId}&words_id={wordsId}", stringContent);
+        }
     }
 }

@@ -147,6 +147,38 @@ public partial class ManageWordsPage : ContentPage, IQueryAttributable, INotifyP
         WordsList = temp;
     }
 
+    private async void DeleteWordsHandler(object sender, EventArgs e)
+    {
+        var button = sender as ImageButton;
+        Words words = button.CommandParameter as Words;
+
+        await _fishkiApiService.DeleteWords(SetId, words.WordsId);
+
+        FishkiSetsPage.ShouldBeRefreshed = true;
+        FishkiDetailsPage.ShouldBeRefreshed = true;
+
+        RefreshWordsList();
+    }
+
+    private async void UpdateWordsHandler(object sender, EventArgs e)
+    {
+        var button = sender as ImageButton;
+        Words words = button.CommandParameter as Words;
+
+        var json = new JsonObject();
+        json.Add("word_1", words.First);
+        json.Add("word_2", words.Second);
+
+        var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+
+        await _fishkiApiService.UpdateWords(SetId, words.WordsId, request);
+
+        FishkiSetsPage.ShouldBeRefreshed = true;
+        FishkiDetailsPage.ShouldBeRefreshed = true;
+
+        RefreshWordsList();
+    }
+
 
     private void OnPropertyChanged(string propertyName)
     {
