@@ -32,6 +32,7 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 	public ICommand EditButtonCommand => new Command(EditButtonHandler);
 	public ICommand WordsListCommand => new Command(() => Shell.Current.GoToAsync(nameof(WordsListPage)));
 	public ICommand ManageWordsButtonCommand => new Command(ManageWordsButtonHandler);
+	public ICommand LearnButtonCommand => new Command(() => Shell.Current.GoToAsync(nameof(LearnPage)));
     public FishkiSet CurrentSet { get; set; }
     public static List<Words> WordsList { get; set; }
 
