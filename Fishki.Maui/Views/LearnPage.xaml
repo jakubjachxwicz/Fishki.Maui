@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fishki.Maui.Views.LearnPage"
+             Title="LearnPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#e5e5e5">
+
+    <Grid Margin="8" RowSpacing="8" ColumnSpacing="64">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="16" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        
+        <StackLayout HorizontalOptions="Center"
+                     Grid.ColumnSpan="2"
+                     x:Name="fishkiCard"
+                     VerticalOptions="Center"
+                     WidthRequest="200"
+                     HeightRequest="200"
+                     BackgroundColor="Aquamarine">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CardTappedCommand}" />
+            </StackLayout.GestureRecognizers>
+            <Label x:Name="frontLabel"
+                   Text="Front"
+                   IsVisible="{Binding IsFrontLabelVisible}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <Label x:Name="backLabel"
+                   Text="Back"
+                   IsVisible="{Binding IsBackLabelVisible}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+        </StackLayout>
+
+        <Border Grid.Row="1"
+                Stroke="#43c000"
+                StrokeThickness="7"
+                BackgroundColor="#b9f075">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <ImageButton Source="left_arrow_icon.png"/>
+        </Border>
+
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Stroke="#43c000"
+                StrokeThickness="7"
+                BackgroundColor="#b9f075">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <ImageButton 
+                         Source="right_arrow_icon.png"/>
+        </Border>
+
+        <Button Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource BottomButton}"
+                Text="Powrót"
+                Command="{Binding ReturnButtonCommand}"/>
+    </Grid>
+</ContentPage>
