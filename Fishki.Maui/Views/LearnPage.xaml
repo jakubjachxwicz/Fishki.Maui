@@ -6,64 +6,112 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="#e5e5e5">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="CardLabel">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0, 100, 0, 0" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style TargetType="Border" x:Key="PrevImageButtonBorder">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding IsEnabled, Source={x:Reference prevImageButton}}" Value="True">
+                        <Setter Property="Stroke" Value="#B66E28" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border" Binding="{Binding IsEnabled, Source={x:Reference prevImageButton}}" Value="False">
+                        <Setter Property="Stroke" Value="#db9814" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Border" x:Key="NextImageButtonBorder">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding IsEnabled, Source={x:Reference nextImageButton}}" Value="True">
+                        <Setter Property="Stroke" Value="#B66E28" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border" Binding="{Binding IsEnabled, Source={x:Reference nextImageButton}}" Value="False">
+                        <Setter Property="Stroke" Value="#db9814" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid Margin="8" RowSpacing="8" ColumnSpacing="64">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
             <RowDefinition Height="80" />
             <RowDefinition Height="16" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        
-        <StackLayout HorizontalOptions="Center"
-                     Grid.ColumnSpan="2"
-                     x:Name="fishkiCard"
-                     VerticalOptions="Center"
-                     WidthRequest="200"
-                     HeightRequest="200"
-                     BackgroundColor="Aquamarine">
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CardTappedCommand}" />
-            </StackLayout.GestureRecognizers>
-            <Label x:Name="frontLabel"
-                   Text="Front"
-                   IsVisible="{Binding IsFrontLabelVisible}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
 
-            <Label x:Name="backLabel"
-                   Text="Back"
-                   IsVisible="{Binding IsBackLabelVisible}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
-        </StackLayout>
+        <Label Text="{Binding HeaderText}"
+               Grid.ColumnSpan="2"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
 
-        <Border Grid.Row="1"
+        <Border Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Margin="32, 32, 32, 128"
+                x:Name="fishkiCard"
                 Stroke="#43c000"
+                StrokeThickness="7">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         BackgroundColor="#b9f075">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CardTappedCommand}" />
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="frontLabel"
+                       Text="{Binding FrontLabelWord}"
+                       IsVisible="{Binding IsFrontLabelVisible}"
+                       Style="{StaticResource CardLabel}"/>
+
+                <Label x:Name="backLabel"
+                       Text="{Binding BackLabelWord}"
+                       IsVisible="{Binding IsBackLabelVisible}"
+                       Style="{StaticResource CardLabel}"/>
+            </StackLayout>
+        </Border>
+
+        <Border Grid.Row="2"
+                Style="{StaticResource PrevImageButtonBorder}"
                 StrokeThickness="7"
-                BackgroundColor="#b9f075">
+                BackgroundColor="#ffc200">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="16" />
             </Border.StrokeShape>
-            <ImageButton Source="left_arrow_icon.png"/>
+            <ImageButton Source="left_arrow_icon.png"
+                         x:Name="prevImageButton"
+                         IsEnabled="{Binding PrevButtonEnabled}"
+                         Command="{Binding SwitchCardCommand}"
+                         CommandParameter="prev"/>
         </Border>
 
-        <Border Grid.Row="1"
+        <Border Grid.Row="2"
                 Grid.Column="1"
-                Stroke="#43c000"
+                Style="{StaticResource NextImageButtonBorder}"
                 StrokeThickness="7"
-                BackgroundColor="#b9f075">
+                BackgroundColor="#ffc200">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="16" />
             </Border.StrokeShape>
-            <ImageButton 
-                         Source="right_arrow_icon.png"/>
+            <ImageButton Source="right_arrow_icon.png"
+                         x:Name="nextImageButton"
+                         IsEnabled="{Binding NextButtonEnabled}"
+                         Command="{Binding SwitchCardCommand}"
+                         CommandParameter="next"/>
         </Border>
 
-        <Button Grid.Row="3"
+        <Button Grid.Row="4"
                 Grid.ColumnSpan="2"
                 Style="{StaticResource BottomButton}"
                 Text="Powrót"
