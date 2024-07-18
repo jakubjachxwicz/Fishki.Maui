@@ -74,21 +74,18 @@ public partial class AddEditControl : ContentView, INotifyPropertyChanged
     {
         if (!NameEntryIsValid)
         {
-            //await DisplayAlert("B³¹d", "Niepoprawne dane w polu \'Nazwa\'", "OK");
             OnError?.Invoke(this, "Niepoprawne dane w polu \'Nazwa\'");
             return;
         }
 
         if (FirstSelectedLanguage.Id == 0 || SecondSelectedLanguage.Id == 0)
         {
-            //await DisplayAlert("B³¹d", "Nie wybrano jêzyka", "OK");
             OnError?.Invoke(this, "Nie wybrano jêzyka");
             return;
         }
 
         if (FirstSelectedLanguage.Id < 27 && FirstSelectedLanguage.Id == SecondSelectedLanguage.Id)
         {
-            //await DisplayAlert("B³¹d", "Wybrane jêzyki s¹ takie same", "OK");
             OnError?.Invoke(this, "Wybrane jêzyki s¹ takie same");
             return;
         }

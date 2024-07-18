@@ -86,10 +86,13 @@
         <Button Text="Ucz się"
                 Style="{StaticResource CustomButton}"
                 Command="{Binding LearnButtonCommand}"
+                CommandParameter="false"
                 Grid.Row="5">
         </Button>
         <Button Text="Ucz się (losowo)"
+                Command="{Binding LearnButtonCommand}"
                 Style="{StaticResource CustomButton}"
+                CommandParameter="true"
                 Grid.Row="5"
                 Grid.Column="1"/>
 
