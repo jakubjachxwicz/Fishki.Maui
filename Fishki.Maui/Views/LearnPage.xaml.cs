@@ -60,13 +60,11 @@ public partial class LearnPage : ContentPage, INotifyPropertyChanged
 		set { }
 	}
 
-    //public string FrontLabelWord { get => WordsList[_wordIndex].First; set { } }
     public string FrontLabelWord
 	{
 		get => IsRandomOrder ? WordsList[_randomIndexes[_wordIndex]].First : WordsList[_wordIndex].First;
 		set { }
     }
-    //public string BackLabelWord { get => WordsList[_wordIndex].Second; set { } }
     public string BackLabelWord
     {
         get => IsRandomOrder ? WordsList[_randomIndexes[_wordIndex]].Second : WordsList[_wordIndex].Second;

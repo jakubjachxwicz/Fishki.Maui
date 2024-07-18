@@ -32,7 +32,7 @@
                      RefreshColor="#43c000"
                      IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}">
-            <CollectionView x:Name="lVwFishkiSets"
+            <CollectionView x:Name="FishkiCollectionView"
                             ItemsSource="{Binding FishkiSets}"
                             SelectionMode="Single"
                             SelectionChangedCommand="{Binding ItemClickedCommand}"

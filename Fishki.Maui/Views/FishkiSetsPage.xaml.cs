@@ -34,6 +34,7 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
     {
         base.OnAppearing();
 
+        FishkiCollectionView.SelectedItem = null;
         FishkiDetailsPage.ShouldBeRefreshed = true;
 
         if (ShouldBeRefreshed)
@@ -75,6 +76,9 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 
     private void ItemClickedHandler(object obj)
     {
+        if (obj == null)
+            return;
+        
         var item = (FishkiSet)obj;
         Shell.Current.GoToAsync($"FishkiDetailsPage?id={item.SetId}");
     }
