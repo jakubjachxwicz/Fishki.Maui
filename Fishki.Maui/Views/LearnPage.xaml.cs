@@ -4,9 +4,27 @@ using Fishki.Maui.Models;
 using System.ComponentModel;
 using System.Windows.Input;
 
+[QueryProperty(nameof(IsRandomOrder), "random")]
 public partial class LearnPage : ContentPage, INotifyPropertyChanged
 {
 	public event PropertyChangedEventHandler PropertyChanged;
+	private bool _isRandomOrder;
+    public bool IsRandomOrder
+	{
+		get => _isRandomOrder;
+		set
+		{
+			_isRandomOrder = value;
+			//OnPropertyChanged(nameof(IsRandomOrder));
+			if (_isRandomOrder)
+			{
+                InitRandomOrder();
+
+				OnPropertyChanged(nameof(FrontLabelWord));
+				OnPropertyChanged(nameof(BackLabelWord));
+            }
+        }
+	}
     public List<Words> WordsList { get; set; }
     public ICommand CardTappedCommand => new Command(CardTappedHandler);
 	public ICommand ReturnButtonCommand => new Command(() => Shell.Current.GoToAsync(".."));
@@ -42,11 +60,23 @@ public partial class LearnPage : ContentPage, INotifyPropertyChanged
 		set { }
 	}
 
-    public string FrontLabelWord { get => WordsList[_wordIndex].First; set { } }
-    public string BackLabelWord { get => WordsList[_wordIndex].Second; set { } }
+    //public string FrontLabelWord { get => WordsList[_wordIndex].First; set { } }
+    public string FrontLabelWord
+	{
+		get => IsRandomOrder ? WordsList[_randomIndexes[_wordIndex]].First : WordsList[_wordIndex].First;
+		set { }
+    }
+    //public string BackLabelWord { get => WordsList[_wordIndex].Second; set { } }
+    public string BackLabelWord
+    {
+        get => IsRandomOrder ? WordsList[_randomIndexes[_wordIndex]].Second : WordsList[_wordIndex].Second;
+        set { }
+    }
 
     public bool PrevButtonEnabled { get => _wordIndex > 0; set { } }
     public bool NextButtonEnabled { get => _wordIndex < WordsList.Count - 1; set { } }
+
+	private int[] _randomIndexes;
 
 
     public LearnPage()
@@ -111,6 +141,20 @@ public partial class LearnPage : ContentPage, INotifyPropertyChanged
         }
 	}
 
+	private void InitRandomOrder()
+	{
+		int len = WordsList.Count;
+		_randomIndexes = Enumerable.Range(0, len).ToArray();
+
+		Random r = new Random();
+		for (int i = len - 1; i > 0; i--)
+		{
+			int j = r.Next(0, i + 1);
+			int temp = _randomIndexes[i];
+			_randomIndexes[i] = _randomIndexes[j];
+			_randomIndexes[j] = temp;
+		}
+	}
 
 
     private void OnPropertyChanged(string propertyName)
