@@ -24,7 +24,8 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="70, *, 60" Margin="8">
+    <Grid RowDefinitions="70, *, 60" Margin="8"
+          RowSpacing="8">
         <Label Style="{StaticResource TitleLabel}"
                Text="Twoje zestawy Fishek"/>
 
@@ -32,7 +33,7 @@
                      RefreshColor="#43c000"
                      IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}">
-            <CollectionView x:Name="lVwFishkiSets"
+            <CollectionView x:Name="FishkiCollectionView"
                             ItemsSource="{Binding FishkiSets}"
                             SelectionMode="Single"
                             SelectionChangedCommand="{Binding ItemClickedCommand}"

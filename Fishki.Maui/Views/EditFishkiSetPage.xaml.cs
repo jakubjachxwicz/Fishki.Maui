@@ -40,18 +40,36 @@ public partial class EditFishkiSetPage : ContentPage, IQueryAttributable
 
     private async void OnSaveHandler(object sender, EventArgs e)
     {
-        var json = new JsonObject();
-        json.Add("name", FishkiControl.FishkiName);
-        json.Add("lang_1", FishkiControl.FirstSelectedLanguage.Code);
-        json.Add("lang_2", FishkiControl.SecondSelectedLanguage.Code);
+        try
+        {
+            var json = new JsonObject();
+            json.Add("name", FishkiControl.FishkiName);
+            json.Add("lang_1", FishkiControl.FirstSelectedLanguage.Code);
+            json.Add("lang_2", FishkiControl.SecondSelectedLanguage.Code);
 
-        var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-        var response = await _fishkiApiService.UpdateSet(request, SetId);
+            var requestString = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            var response = await _fishkiApiService.UpdateSet(requestString, SetId);
 
-        await DisplayAlert("Komunikat", "Zestaw zaktualizowany pomyœlnie", "OK");
-        FishkiSetsPage.ShouldBeRefreshed = true;
-        FishkiDetailsPage.ShouldBeRefreshed = true;
-        await Shell.Current.GoToAsync("..");
+            if (response == null)
+                throw new Exception("Problem z aktualizacj¹ danych");
+
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Komunikat", "Zestaw zaktualizowany pomyœlnie", "OK");
+                FishkiSetsPage.ShouldBeRefreshed = true;
+                FishkiDetailsPage.ShouldBeRefreshed = true;
+                await Shell.Current.GoToAsync("..");
+            }
+            else
+            {
+                await DisplayAlert("Komunikat", "Nie uda³o siê zakualizowaæ danych", "OK");
+                await Shell.Current.GoToAsync("..");
+            }
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+        }
     }
 
     private void OnCancelHandler(object sender, EventArgs e)

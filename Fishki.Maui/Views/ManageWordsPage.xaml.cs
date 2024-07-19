@@ -6,6 +6,7 @@ using System.Text.Json.Nodes;
 using System.Web;
 using System.Text;
 using System.Windows.Input;
+using System.Text.Json;
 
 namespace Fishki.Maui.Views;
 
@@ -119,64 +120,130 @@ public partial class ManageWordsPage : ContentPage, IQueryAttributable, INotifyP
             return;
         }
 
-        var json = new JsonObject();
-        json.Add("word_1", FirstNewWordsEntry);
-        json.Add("word_2", SecondNewWordsEntry);
 
-        var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-        await _fishkiApiService.AddWords(SetId, request);
+        try
+        {
+            var jsonRequest = new JsonObject();
+            jsonRequest.Add("word_1", FirstNewWordsEntry);
+            jsonRequest.Add("word_2", SecondNewWordsEntry);
 
-        FirstNewWordsEntry = string.Empty;
-        SecondNewWordsEntry = string.Empty;
+            var requestString = new StringContent(jsonRequest.ToString(), Encoding.UTF8, "application/json");
+            var apiResponse = await _fishkiApiService.AddWords(SetId, requestString);
 
-        FishkiSetsPage.ShouldBeRefreshed = true;
-        FishkiDetailsPage.ShouldBeRefreshed= true;
+            if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+            {
+                FirstNewWordsEntry = string.Empty;
+                SecondNewWordsEntry = string.Empty;
 
-        RefreshWordsList();
+                FishkiSetsPage.ShouldBeRefreshed = true;
+                FishkiDetailsPage.ShouldBeRefreshed = true;
+
+                RefreshWordsList();
+            }
+            else
+                throw new Exception("Nie uda³o siê dodaæ nowych s³ówek do zestawu");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+        }
     }
 
     private async void RefreshWordsList()
     {
-        var temp = new ObservableCollection<Words>();
+        try
+        {
+            var apiResponse = await _fishkiApiService.GetWords(SetId);
 
-        var apiResponse = await _fishkiApiService.GetWords(SetId);
+            if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+            {
+                var stringData = await apiResponse.Content.ReadAsStringAsync();
+                var jsonData = JsonSerializer.Deserialize<List<Words>>(stringData);
 
-        foreach (var doc in apiResponse)
-            temp.Add(doc);
+                if (jsonData == null)
+                    throw new Exception("Nie uda³o siê wczytaæ listy s³ówek");
 
-        WordsList = temp;
+                WordsList = new ObservableCollection<Words>(jsonData);
+            }
+            else
+                throw new Exception("Nie uda³o siê wczytaæ listy s³ówek");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+        }
     }
 
     private async void DeleteWordsHandler(object sender, EventArgs e)
     {
-        var button = sender as ImageButton;
-        Words words = button.CommandParameter as Words;
+        try
+        {
+            var button = sender as ImageButton;
+            if (button == null) return;
 
-        await _fishkiApiService.DeleteWords(SetId, words.WordsId);
+            Words words = button.CommandParameter as Words;
+            if (words == null) return;
 
-        FishkiSetsPage.ShouldBeRefreshed = true;
-        FishkiDetailsPage.ShouldBeRefreshed = true;
+            var apiResponse = await _fishkiApiService.DeleteWords(SetId, words.WordsId);
 
-        RefreshWordsList();
+            if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+            {
+                FishkiSetsPage.ShouldBeRefreshed = true;
+                FishkiDetailsPage.ShouldBeRefreshed = true;
+
+                RefreshWordsList();
+            }
+            else await DisplayAlert("Komunikat", "Nie uda³o siê usun¹æ s³ówke", "OK");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+        }
     }
 
     private async void UpdateWordsHandler(object sender, EventArgs e)
     {
         var button = sender as ImageButton;
+        if (button == null) return;
+
         Words words = button.CommandParameter as Words;
+        if (words == null) return;
 
-        var json = new JsonObject();
-        json.Add("word_1", words.First);
-        json.Add("word_2", words.Second);
+        if (words.First == string.Empty || words.First.Length > 36)
+        {
+            await DisplayAlert("B³¹d", "Niepoprawna d³ugoœæ pierwszego s³ówka", "OK");
+            return;
+        }
 
-        var request = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+        if (words.Second == string.Empty || words.Second.Length > 36)
+        {
+            await DisplayAlert("B³¹d", "Niepoprawna d³ugoœæ drugiego s³ówka", "OK");
+            return;
+        }
 
-        await _fishkiApiService.UpdateWords(SetId, words.WordsId, request);
+        try
+        {
+            var requestJson = new JsonObject();
+            requestJson.Add("word_1", words.First);
+            requestJson.Add("word_2", words.Second);
 
-        FishkiSetsPage.ShouldBeRefreshed = true;
-        FishkiDetailsPage.ShouldBeRefreshed = true;
+            var requestString = new StringContent(requestJson.ToString(), Encoding.UTF8, "application/json");
 
-        RefreshWordsList();
+            var response = await _fishkiApiService.UpdateWords(SetId, words.WordsId, requestString);
+
+            if (response != null && response.IsSuccessStatusCode)
+            {
+                FishkiSetsPage.ShouldBeRefreshed = true;
+                FishkiDetailsPage.ShouldBeRefreshed = true;
+
+                RefreshWordsList();
+            }
+            else await DisplayAlert("Komunikat", "Nie uda³o siê zaktualizowaæ s³ówek", "OK");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+        }
     }
 
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fishki.Maui.Views.ErrorPage"
+             Title="ErrorPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#e5e5e5">
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Wystąpił błąd"
+               Style="{StaticResource TitleLabel}"/>
+
+        <Label Text="{Binding ErrorMessage}"
+               Grid.Row="1"
+               Margin="0, 100, 0, 0"
+               TextColor="Black"/>
+
+        <Button Grid.Row="2"
+                Style="{StaticResource BottomButton}"
+                Text="Powrót na stronę główną"
+                Command="{Binding ReturnButtonCommand}"/>
+    </Grid>
+</ContentPage>
