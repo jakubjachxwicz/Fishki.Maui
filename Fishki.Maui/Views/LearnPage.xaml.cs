@@ -15,7 +15,6 @@ public partial class LearnPage : ContentPage, INotifyPropertyChanged
 		set
 		{
 			_isRandomOrder = value;
-			//OnPropertyChanged(nameof(IsRandomOrder));
 			if (_isRandomOrder)
 			{
                 InitRandomOrder();

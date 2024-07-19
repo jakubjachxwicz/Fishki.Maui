@@ -24,7 +24,8 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="70, *, 60" Margin="8">
+    <Grid RowDefinitions="70, *, 60" Margin="8"
+          RowSpacing="8">
         <Label Style="{StaticResource TitleLabel}"
                Text="Twoje zestawy Fishek"/>
 

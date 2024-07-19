@@ -2,6 +2,7 @@ using System.ComponentModel;
 using Fishki.Maui.Models;
 using System.Windows.Input;
 using Fishki.Maui.Utils;
+using System.Text.Json;
 
 namespace Fishki.Maui.Views;
 
@@ -67,36 +68,64 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 
 	private async void GetSetInfo()
 	{
-		var apiResponse = await _apiService.GetSet(SetId);
+		try
+		{
+            var apiResponse = await _apiService.GetSet(SetId);
 
-        if (apiResponse != null)
-        {
-            CurrentSet = apiResponse;
+			if (apiResponse == null)
+				throw new Exception("Nie uda³o siê pobraæ danych o zestawie Fishek");
 
-			OnPropertyChanged(nameof(WordsCount));
-			OnPropertyChanged(nameof(FishkiSetName));
-			OnPropertyChanged(nameof(FirstLanguageName));
-			OnPropertyChanged(nameof(SecondLanguageName));
-			OnPropertyChanged(nameof(FirstFlagUri));
-			OnPropertyChanged(nameof(SecondFlagUri));
+			if (apiResponse.IsSuccessStatusCode)
+			{
+				var stringData = await apiResponse.Content.ReadAsStringAsync();
+				var jsonData = JsonSerializer.Deserialize<FishkiSet>(stringData);
+
+				if (jsonData == null)
+					throw new Exception("Nie uda³o siê pobraæ danych o zestawie Fishek");
+
+				CurrentSet = jsonData;
+
+                OnPropertyChanged(nameof(WordsCount));
+				OnPropertyChanged(nameof(FishkiSetName));
+				OnPropertyChanged(nameof(FirstLanguageName));
+				OnPropertyChanged(nameof(SecondLanguageName));
+				OnPropertyChanged(nameof(FirstFlagUri));
+				OnPropertyChanged(nameof(SecondFlagUri));
+			}
+
+			else
+				throw new Exception("Nie uda³o siê pobraæ danych o zestawie Fishek");
         }
+		catch (Exception ex)
+		{
+			await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+		}
     }
 
 	private async void GetWordsList()
 	{
-		List<Words> temp = new List<Words>();
-
-		var apiResponse = await _apiService.GetWords(SetId);
-
-		if (apiResponse != null)
+		try
 		{
-			foreach (var words in apiResponse)
-			{
-				temp.Add(words);
-			}
-		}
+            var apiResponse = await _apiService.GetWords(SetId);
 
-		WordsList = temp;
+			if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+			{
+				var stringData = await apiResponse.Content.ReadAsStringAsync();
+				var jsonData = JsonSerializer.Deserialize<List<Words>>(stringData);
+
+				if (jsonData == null)
+                    throw new Exception("Nie uda³o siê pobraæ s³ówek z tego zestawu");
+
+				WordsList = new List<Words>(jsonData);
+            }
+
+			else
+                throw new Exception("Nie uda³o siê pobraæ s³ówek z tego zestawu");
+        }
+		catch (Exception ex)
+		{
+			await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+		}
 	}
 
 	private async void DeleteFishkiSet()
@@ -105,9 +134,22 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 		if (!answer)
 			return;
 
-		await _apiService.DeleteSet(SetId);
-		FishkiSetsPage.ShouldBeRefreshed = true;
-		await Shell.Current.GoToAsync("..");
+		try
+		{
+            var response = await _apiService.DeleteSet(SetId);
+
+			if (response != null && response.IsSuccessStatusCode)
+			{
+				FishkiSetsPage.ShouldBeRefreshed = true;
+				await Shell.Current.GoToAsync("..");
+			}
+			else
+				throw new Exception("Nie uda³o siê usun¹æ tego zestawu Fishek");
+        }
+		catch (Exception ex)
+		{
+			await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+		}
     }
 
 	private void EditButtonHandler()
@@ -122,8 +164,10 @@ public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 
 	private void LearnButtonHandler(object obj)
 	{
-		// Shell.Current.GoToAsync($"{nameof(LearnPage)}?random={obj}");
-		Shell.Current.GoToAsync($"{nameof(LearnPage)}?random={obj}");
+		if (CurrentSet.WordsCount > 0)
+			Shell.Current.GoToAsync($"{nameof(LearnPage)}?random={obj}");
+
+		else DisplayAlert("Komunikat", "Brak s³ówek w tym zestawie Fishek", "OK");
     }
 
     private void OnPropertyChanged(string name)

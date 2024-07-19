@@ -15,6 +15,7 @@ namespace Fishki.Maui
             Routing.RegisterRoute(nameof(WordsListPage), typeof(WordsListPage));
             Routing.RegisterRoute(nameof(ManageWordsPage), typeof(ManageWordsPage));
             Routing.RegisterRoute(nameof(LearnPage), typeof(LearnPage));
+            Routing.RegisterRoute(nameof(ErrorPage), typeof(ErrorPage));
         }
     }
 }
