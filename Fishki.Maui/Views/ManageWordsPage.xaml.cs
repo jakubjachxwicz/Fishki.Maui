@@ -165,6 +165,18 @@ public partial class ManageWordsPage : ContentPage, IQueryAttributable, INotifyP
         var button = sender as ImageButton;
         Words words = button.CommandParameter as Words;
 
+        if (words.First == string.Empty || words.First.Length > 36)
+        {
+            await DisplayAlert("B³¹d", "Niepoprawna d³ugoœæ pierwszego s³ówka", "OK");
+            return;
+        }
+
+        if (words.Second == string.Empty || words.Second.Length > 36)
+        {
+            await DisplayAlert("B³¹d", "Niepoprawna d³ugoœæ drugiego s³ówka", "OK");
+            return;
+        }
+
         var json = new JsonObject();
         json.Add("word_1", words.First);
         json.Add("word_2", words.Second);

@@ -17,77 +17,91 @@
 
     <Grid Margin="0, 0, 0, 8">
         <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
-        <CollectionView ItemsSource="{Binding WordsList}"
-                        x:Name="collectionView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <ContentView>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="1" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="1" />
-                            </Grid.RowDefinitions>
+        <Grid Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding Source={x:Reference collectionView}, Path=BindingContext.FirstDisplayLanguage}"
-                                   Margin="4, 2, 0, 0"
-                                   VerticalOptions="End"/>
-                            <Entry Grid.Row="1"
-                                   Text="{Binding First}"
-                                   FontSize="Medium">
-                            </Entry>
+            <Label Text="{Binding FirstDisplayLanguage}"
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding SecondDisplayLanguage}"
+                   Grid.Column="1"
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+        </Grid>
 
-                            <BoxView Grid.Column="1"
-                                     Grid.RowSpan="2"
-                                     BackgroundColor="SlateGray"/>
+        <Border Grid.Row="1"
+                StrokeThickness="2">
+            <CollectionView ItemsSource="{Binding WordsList}"
+                            x:Name="collectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Source={x:Reference collectionView}, Path=BindingContext.SecondDisplayLanguage}"
-                                   Grid.Column="2"
-                                   VerticalOptions="End"
-                                   Margin="4, 2, 0, 0"/>
-                            <Entry Grid.Row="1"
-                                   Grid.Column="2"
-                                   Text="{Binding Second}"
-                                   FontSize="Medium">
-                            </Entry>
+                                <Entry Grid.RowSpan="2"
+                                       Text="{Binding First}"
+                                       FontSize="Medium"
+                                       VerticalOptions="End">
+                                </Entry>
 
-                            <BoxView Grid.ColumnSpan="4"
-                                     Grid.Row="2"
-                                     BackgroundColor="SlateGray"/>
+                                <BoxView Grid.Column="1"
+                                         Grid.RowSpan="2"
+                                         BackgroundColor="SlateGray"/>
 
-                            <ImageButton Grid.Column="3"
-                                         Source="ok_icon.png"
-                                         WidthRequest="32"
-                                         HeightRequest="32"
-                                         Margin="2"
-                                         Clicked="UpdateWordsHandler"
-                                         CommandParameter="{Binding .}"/>
-                            <ImageButton Grid.Column="3"
-                                         Margin="2"
-                                         WidthRequest="32"
-                                         HeightRequest="32"
-                                         Source="delete_icon.png"
-                                         Grid.Row="1"
-                                         Clicked="DeleteWordsHandler"
-                                         CommandParameter="{Binding .}"/>
-                        </Grid>
-                    </ContentView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                <Entry Grid.RowSpan="2"
+                                       Grid.Column="2"
+                                       Text="{Binding Second}"
+                                       FontSize="Medium"
+                                       VerticalOptions="End">
+                                </Entry>
 
-        <Grid Grid.Row="1" Margin="8">
+                                <BoxView Grid.ColumnSpan="4"
+                                         Grid.Row="2"
+                                         BackgroundColor="SlateGray"/>
+
+                                <ImageButton Grid.Column="3"
+                                             Source="ok_icon.png"
+                                             Margin="2"
+                                             WidthRequest="28"
+                                             HeightRequest="28"
+                                             Clicked="UpdateWordsHandler"
+                                             CommandParameter="{Binding .}"/>
+                                <ImageButton Grid.Column="3"
+                                             Margin="2"
+                                             WidthRequest="28"
+                                             HeightRequest="28"
+                                             Source="delete_icon.png"
+                                             Grid.Row="1"
+                                             Clicked="DeleteWordsHandler"
+                                             CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+        <Grid Grid.Row="2" Margin="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -140,7 +154,7 @@
             </Button>
         </Grid>
 
-        <Button Grid.Row="2"
+        <Button Grid.Row="3"
                 Style="{StaticResource BottomButton}"
                 Text="Powrót"
                 Command="{Binding ReturnButtonCommand}"
