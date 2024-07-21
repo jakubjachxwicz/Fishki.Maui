@@ -9,7 +9,7 @@
         <Setter Property="FontAttributes" Value="Bold" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
-        <Setter Property="TextColor" Value="#4b4b4b" />
+        <!--<Setter Property="TextColor" Value="#4b4b4b" />-->
         <Setter Property="Margin" Value="0, 0, 0, 15" />
     </Style>
 
@@ -17,6 +17,7 @@
         <Setter Property="BackgroundColor" Value="#4b4b4b" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="HeightRequest" Value="60" />
+        <Setter Property="MaximumWidthRequest" Value="{OnPlatform WinUI=600}" />
     </Style>
 
     <Style TargetType="ActivityIndicator">
