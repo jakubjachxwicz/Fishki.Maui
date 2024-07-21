@@ -16,8 +16,8 @@
                 <Setter Property="Shadow">
                     <Setter.Value>
                         <Shadow Brush="#F49000"
-                                Offset="0, 16"
-                                Radius="5"/>
+                                Offset="{OnPlatform Android='0, 16', WinUI='0, 6'}"
+                                Radius="1"/>
                     </Setter.Value>
                 </Setter>
             </Style>

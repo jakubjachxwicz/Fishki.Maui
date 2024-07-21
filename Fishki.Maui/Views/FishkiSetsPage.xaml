@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fishki.Maui.Views.FishkiSetsPage"
              Title="FishkiSetsPage"
-             Shell.NavBarIsVisible="False"
-             BackgroundColor="#e5e5e5">
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
         <Style TargetType="ContentView">
@@ -32,7 +31,8 @@
         <RefreshView Grid.Row="1"
                      RefreshColor="#43c000"
                      IsRefreshing="{Binding IsRefreshing}"
-                     Command="{Binding RefreshCommand}">
+                     Command="{Binding RefreshCommand}"
+                     MaximumWidthRequest="{OnPlatform WinUI=1000}">
             <CollectionView x:Name="FishkiCollectionView"
                             ItemsSource="{Binding FishkiSets}"
                             SelectionMode="Single"
@@ -51,8 +51,8 @@
                                 </Border.StrokeShape>
                                 <Border.Shadow>
                                     <Shadow Brush="#338c01"
-                                            Offset="15, 15"
-                                            Radius="10"/>
+                                            Offset="{OnPlatform Android='15, 15', WinUI='6, 6'}"
+                                            Radius="1"/>
                                 </Border.Shadow>
 
                                 <Grid>

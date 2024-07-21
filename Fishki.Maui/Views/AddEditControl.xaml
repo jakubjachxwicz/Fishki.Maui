@@ -2,15 +2,14 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="Fishki.Maui.Views.AddEditControl"
-             BackgroundColor="#e5e5e5">
+             x:Class="Fishki.Maui.Views.AddEditControl">
 
     <ContentView.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="LeftSideLbl">
                 <Setter Property="HorizontalTextAlignment" Value="End" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
-                <Setter Property="TextColor" Value="#4b4b4b" />
+                <!--<Setter Property="TextColor" Value="#4b4b4b" />-->
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -69,7 +68,6 @@
                 <Entry
                    Grid.Row="1"
                    Grid.Column="1"
-                   Grid.ColumnSpan="2"
                    Margin="20 ,0, 20, 0"
                    FontAttributes="Bold"
                    FontSize="Medium"
@@ -145,37 +143,41 @@
         </OnPlatform>
 
         <Border Grid.Row="2" Grid.Column="2"
-            HeightRequest="40"
-            WidthRequest="57"
-            Stroke="White"
-            StrokeThickness="3">
+                HeightRequest="40"
+                WidthRequest="57"
+                Stroke="White"
+                HorizontalOptions="{OnPlatform WinUI=Start}"
+                Margin="{OnPlatform WinUI='16, 0, 0, 0'}"
+                StrokeThickness="3">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="2" />
             </Border.StrokeShape>
             <Image Source="{Binding FirstFlagUri}"
-               Aspect="Fill"/>
+                   Aspect="Fill"/>
         </Border>
         <Border Grid.Row="3" Grid.Column="2"
-            HeightRequest="40"
-            WidthRequest="57"
-            Stroke="White"
-            StrokeThickness="3">
+                HeightRequest="40"
+                WidthRequest="57"
+                HorizontalOptions="{OnPlatform WinUI=Start}"
+                Margin="{OnPlatform WinUI='16, 0, 0, 0'}"
+                Stroke="White"
+                StrokeThickness="3">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="2" />
             </Border.StrokeShape>
             <Image Source="{Binding SecondFlagUri}"
-               Aspect="Fill"/>
+                   Aspect="Fill"/>
         </Border>
 
         <Button Text="Zapisz"
-            Grid.Row="5"
-            Style="{StaticResource BottomButton}"
-            Command="{Binding SaveButtonCommand}"
-            Grid.ColumnSpan="3"/>
+                Grid.Row="5"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding SaveButtonCommand}"
+                Grid.ColumnSpan="3"/>
         <Button Text="Anuluj"
-            Grid.Row="6"
-            Grid.ColumnSpan="3"
-            Style="{StaticResource BottomButton}"
-            Command="{Binding CancelButtonCommand}"/>
+                Grid.Row="6"
+                Grid.ColumnSpan="3"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding CancelButtonCommand}"/>
     </Grid>
 </ContentView>
