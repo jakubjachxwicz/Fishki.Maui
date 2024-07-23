@@ -7,7 +7,7 @@ namespace Fishki.Maui.Views;
 
 public partial class AddSetPage : ContentPage, INotifyPropertyChanged
 {
-    private readonly FishkiApiService _apiService = FishkiSetsPage._apiService;
+    private readonly FishkiApiService _apiService = LoginPage.apiService;
 
     public AddSetPage()
 	{

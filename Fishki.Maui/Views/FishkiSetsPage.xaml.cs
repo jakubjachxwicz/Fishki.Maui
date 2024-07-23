@@ -10,7 +10,7 @@ namespace Fishki.Maui.Views;
 public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    public static FishkiApiService _apiService;
+    private readonly FishkiApiService _apiService = LoginPage.apiService;
     private ObservableCollection<FishkiSet> _fishkiSets;
     private bool _isRefresing;
     public ICommand RefreshCommand { get; set; }
@@ -57,7 +57,6 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
         InitializeComponent();
 
         _fishkiSets = new ObservableCollection<FishkiSet>();
-        _apiService = new FishkiApiService();
 
         RefreshCommand = new Command(() =>
         {

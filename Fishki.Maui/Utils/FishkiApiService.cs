@@ -1,5 +1,6 @@
 ﻿using Fishki.Maui.Models;
 using Fishki.Maui.Vulnerable;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace Fishki.Maui.Utils
@@ -85,6 +86,31 @@ namespace Fishki.Maui.Utils
                 return null;
 
             return await _httpClient.PatchAsync($"update_words?set_id={setId}&words_id={wordsId}", stringContent);
+        }
+
+        public async Task<HttpResponseMessage?> RegisterUser(StringContent stringContent)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.PostAsync("register", stringContent);
+        }
+
+        public async Task<HttpResponseMessage?> LoginUser(StringContent stringContent)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            return await _httpClient.PostAsync("login", stringContent);
+        }
+
+        public async Task<HttpResponseMessage?> VerifyToken(string token)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return null;
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            return await _httpClient.GetAsync("verify_token");
         }
     }
 }

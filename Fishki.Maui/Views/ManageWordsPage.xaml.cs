@@ -13,7 +13,7 @@ namespace Fishki.Maui.Views;
 public partial class ManageWordsPage : ContentPage, IQueryAttributable, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    private readonly FishkiApiService _fishkiApiService = FishkiSetsPage._apiService;
+    private readonly FishkiApiService _fishkiApiService = LoginPage.apiService;
     public int SetId { get; set; }
     private ObservableCollection<Words> _wordsList;
     public ObservableCollection<Words> WordsList

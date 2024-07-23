@@ -10,7 +10,7 @@ namespace Fishki.Maui.Views;
 public partial class FishkiDetailsPage : ContentPage, INotifyPropertyChanged
 {
 	public event PropertyChangedEventHandler PropertyChanged;
-    private readonly FishkiApiService _apiService = FishkiSetsPage._apiService;
+    private readonly FishkiApiService _apiService = LoginPage.apiService;
 	public static bool ShouldBeRefreshed { get; set; } = true;
     private int _setId;
 	public int SetId

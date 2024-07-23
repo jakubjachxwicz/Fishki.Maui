@@ -9,7 +9,6 @@
             <Style TargetType="Label" x:Key="LeftSideLbl">
                 <Setter Property="HorizontalTextAlignment" Value="End" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
-                <!--<Setter Property="TextColor" Value="#4b4b4b" />-->
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
