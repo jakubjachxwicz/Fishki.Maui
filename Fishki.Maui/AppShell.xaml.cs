@@ -18,6 +18,7 @@ namespace Fishki.Maui
             Routing.RegisterRoute(nameof(ErrorPage), typeof(ErrorPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
         }
     }
 }

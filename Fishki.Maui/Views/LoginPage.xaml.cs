@@ -35,7 +35,11 @@ public partial class LoginPage : ContentPage
 
 		var verificationResponse = await apiService.VerifyToken(token);
 		if (verificationResponse != null && verificationResponse.IsSuccessStatusCode)
+		{
+            
 			await Shell.Current.GoToAsync(nameof(FishkiSetsPage));
+        }
+			
     }
 
     private async void LoginHandler()
@@ -53,6 +57,8 @@ public partial class LoginPage : ContentPage
 			var jsonResponse = JsonSerializer.Deserialize<LoginResponse>(stringResponse);
 
 			await SecureStorage.SetAsync("auth_token", jsonResponse.Token);
+			apiService.SetBearerToken(jsonResponse.Token);
+
 			await Shell.Current.GoToAsync(nameof(FishkiSetsPage));
         }
 	}

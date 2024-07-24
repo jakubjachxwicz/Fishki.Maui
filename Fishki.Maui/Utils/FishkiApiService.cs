@@ -112,5 +112,10 @@ namespace Fishki.Maui.Utils
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             return await _httpClient.GetAsync("verify_token");
         }
+
+        public void SetBearerToken(string token)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
     }
 }
