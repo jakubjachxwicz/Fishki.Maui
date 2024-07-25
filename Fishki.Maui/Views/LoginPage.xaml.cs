@@ -52,6 +52,12 @@ public partial class LoginPage : ContentPage
 
     private async void LoginHandler()
 	{
+		if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
+		{
+			await DisplayAlert("Komunikat", "Uzupe³nij dane logowania", "OK");
+			return;
+		}
+		
 		try
 		{
 			var json = new JsonObject();
