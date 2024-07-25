@@ -8,8 +8,11 @@ namespace Fishki.Maui.Views;
 public partial class RegisterPage : ContentPage
 {
     private readonly FishkiApiService apiService = LoginPage.apiService;
-	
-	public string Username { get; set; }
+
+    public bool IsUsernameValid { get; set; }
+    public bool IsEmailValid { get; set; }
+
+    public string Username { get; set; }
     public string Email { get; set; }
 	public string Password { get; set; }
     public string RepeatedPassword { get; set; }
@@ -25,7 +28,31 @@ public partial class RegisterPage : ContentPage
 
 	private async void RegisterHandler()
 	{
-		try
+		if (!IsUsernameValid)
+        {
+            await DisplayAlert("Komunikat", "Nazwa u¿ytkownika powinna zawieraæ od 1 do 20 znaków", "OK");
+            return;
+        }
+
+        if (!IsEmailValid)
+        {
+            await DisplayAlert("Komunikat", "Niepoprawny adres email", "OK");
+            return;
+        }
+
+        if (!StaticMethods.IsPasswordValid(Password))
+        {
+            await DisplayAlert("Komunikat", "Has³o musi zawieraæ:\n8 - 20 znaków\nWielk¹ literê oraz cyfrê", "OK");
+            return;
+        }
+
+        if (Password != RepeatedPassword)
+        {
+            await DisplayAlert("Komunikat", "Has³a s¹ ró¿ne", "OK");
+            return;
+        }
+
+        try
 		{
             var json = new JsonObject();
             json.Add("username", Username);
