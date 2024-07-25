@@ -25,18 +25,27 @@ public partial class RegisterPage : ContentPage
 
 	private async void RegisterHandler()
 	{
-		var json = new JsonObject();
-		json.Add("username", Username);
-		json.Add("email", Email);
-		json.Add("password", Password);
-
-		var requestJson = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-		var apiResponse = await apiService.RegisterUser(requestJson);
-
-		if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+		try
 		{
-			await DisplayAlert("Komunikat", "U¿tkownik zosta³ dodany", "OK");
-			await Shell.Current.GoToAsync("..");
-		}
+            var json = new JsonObject();
+            json.Add("username", Username);
+            json.Add("email", Email);
+            json.Add("password", Password);
+
+            var requestJson = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            var apiResponse = await apiService.RegisterUser(requestJson);
+
+            if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Komunikat", "U¿tkownik zosta³ dodany", "OK");
+                await Shell.Current.GoToAsync("..");
+            }
+
+            else throw new Exception("Rejestracja nie powiod³a siê");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+        }
 	}
 }

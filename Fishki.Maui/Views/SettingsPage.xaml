@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Fishki.Maui.Views.SettingsPage"
              Title="SettingsPage"
              Shell.NavBarIsVisible="False">
@@ -59,7 +60,14 @@
                            FontSize="15"/>
                     <Entry Grid.Row="1"
                            Placeholder="Nowa nazwa użytkownika"
-                           Text="{Binding Username}"/>
+                           Text="{Binding Username, Mode=TwoWay}">
+                        <Entry.Behaviors>
+                            <toolkit:TextValidationBehavior MinimumLength="1"
+                                                            MaximumLength="20"
+                                                            Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                            IsValid="{Binding IsUsernameValid}"/>
+                        </Entry.Behaviors>
+                    </Entry>
 
                     <Button Text="Zaktualizuj"
                             Grid.Row="1"
@@ -82,7 +90,19 @@
                            FontSize="15"/>
                     <Entry Grid.Row="1"
                            Placeholder="Nowy adres email"
-                           Text="{Binding Email}"/>
+                           Text="{Binding Email, Mode=TwoWay}">
+                        <Entry.Behaviors>
+                            <toolkit:MultiValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                             IsValid="{Binding IsEmailValid}">
+                                <toolkit:EmailValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                                 toolkit:MultiValidationBehavior.Error="Email format is invalid"/>
+                                <toolkit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                                MinimumLength="1"
+                                                                MaximumLength="40"
+                                                                toolkit:MultiValidationBehavior.Error="Email is required"/>
+                            </toolkit:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
 
                     <Button Text="Zaktualizuj"
                             Grid.Row="1"

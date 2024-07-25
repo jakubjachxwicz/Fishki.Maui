@@ -33,33 +33,51 @@ public partial class LoginPage : ContentPage
 		if (string.IsNullOrEmpty(token))
 			return;
 
-		var verificationResponse = await apiService.VerifyToken(token);
-		if (verificationResponse != null && verificationResponse.IsSuccessStatusCode)
+		try
 		{
-            
-			await Shell.Current.GoToAsync(nameof(FishkiSetsPage));
+			var verificationResponse = await apiService.VerifyToken(token);
+			if (verificationResponse != null && verificationResponse.IsSuccessStatusCode)
+			{
+				await Shell.Current.GoToAsync(nameof(FishkiSetsPage));
+			}
+
+            SecureStorage.Remove("auth_token");
         }
-			
+		catch (Exception ex)
+		{
+			SecureStorage.Remove("auth_token");
+			await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
+		}
     }
 
     private async void LoginHandler()
 	{
-		var json = new JsonObject();
-		json.Add("email", Email);
-		json.Add("password", Password);
-
-		var requestJson = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-		var apiResponse = await apiService.LoginUser(requestJson);
-
-		if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+		try
 		{
-			var stringResponse = await apiResponse.Content.ReadAsStringAsync();
-			var jsonResponse = JsonSerializer.Deserialize<LoginResponse>(stringResponse);
+			var json = new JsonObject();
+			json.Add("email", Email);
+			json.Add("password", Password);
 
-			await SecureStorage.SetAsync("auth_token", jsonResponse.Token);
-			apiService.SetBearerToken(jsonResponse.Token);
+			var requestJson = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+			var apiResponse = await apiService.LoginUser(requestJson);
 
-			await Shell.Current.GoToAsync(nameof(FishkiSetsPage));
+			if (apiResponse != null && apiResponse.IsSuccessStatusCode)
+			{
+				var stringResponse = await apiResponse.Content.ReadAsStringAsync();
+				var jsonResponse = JsonSerializer.Deserialize<LoginResponse>(stringResponse);
+
+				await SecureStorage.SetAsync("auth_token", jsonResponse.Token);
+				apiService.SetBearerToken(jsonResponse.Token);
+
+				await Shell.Current.GoToAsync(nameof(FishkiSetsPage));
+			}
+
+			else throw new Exception("Nie uda³o siê zalogowaæ");
+		}
+		catch (Exception ex)
+		{
+			SecureStorage.Remove("auth_token");
+            await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
         }
 	}
 }
