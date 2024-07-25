@@ -1,10 +1,11 @@
 ﻿using Fishki.Maui.Models;
 using Fishki.Maui.Vulnerable;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace Fishki.Maui.Utils
 {
-    public class FishkiApiService
+    public partial class FishkiApiService
     {
         private readonly HttpClient _httpClient;
 

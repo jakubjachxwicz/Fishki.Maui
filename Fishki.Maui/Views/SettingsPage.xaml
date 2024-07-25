@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Fishki.Maui.Views.SettingsPage"
+             Title="SettingsPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="UpdateButton">
+                <Setter Property="BackgroundColor" Value="#43c000" />
+                <Setter Property="MaximumWidthRequest" Value="140" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="#338c01"
+                                Offset="{OnPlatform Android='0, 16', WinUI='0, 6'}"
+                                Radius="1"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="8"
+          RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Label Style="{StaticResource TitleLabel}"
+               Text="Ustawienia"/>
+
+        <ScrollView Grid.Row="1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Nazwa użytkownika"
+                           FontSize="15"/>
+                    <Entry Grid.Row="1"
+                           Placeholder="Nowa nazwa użytkownika"
+                           Text="{Binding Username, Mode=TwoWay}">
+                        <Entry.Behaviors>
+                            <toolkit:TextValidationBehavior MinimumLength="1"
+                                                            MaximumLength="20"
+                                                            Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                            IsValid="{Binding IsUsernameValid}"/>
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Button Text="Zaktualizuj"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Command="{Binding UpdateUsernameCommand}"
+                            Style="{StaticResource UpdateButton}"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Adres email"
+                           FontSize="15"/>
+                    <Entry Grid.Row="1"
+                           Placeholder="Nowy adres email"
+                           Text="{Binding Email, Mode=TwoWay}">
+                        <Entry.Behaviors>
+                            <toolkit:MultiValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                             IsValid="{Binding IsEmailValid}">
+                                <toolkit:EmailValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                                 toolkit:MultiValidationBehavior.Error="Email format is invalid"/>
+                                <toolkit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                                MinimumLength="1"
+                                                                MaximumLength="40"
+                                                                toolkit:MultiValidationBehavior.Error="Email is required"/>
+                            </toolkit:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Button Text="Zaktualizuj"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Command="{Binding UpdateEmailCommand}"
+                            Style="{StaticResource UpdateButton}"/>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Zmiana hasła"
+                           FontSize="15"/>
+
+                    <Entry Grid.Row="1"
+                           Placeholder="Stare hasło"
+                           IsPassword="True"
+                           Text="{Binding OldPassword}"/>
+                    <Entry Grid.Row="2"
+                           Placeholder="Nowe hasło"
+                           IsPassword="True"
+                           Text="{Binding NewPassword}"/>
+                    <Entry Grid.Row="3"
+                           Placeholder="Powtórz nowe hasło"
+                           IsPassword="True"
+                           Text="{Binding RepeatedNewPassword}"/>
+
+                    <Button Text="Zaktualizuj"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Command="{Binding UpdatePasswordCommand}"
+                            Style="{StaticResource UpdateButton}"/>
+                </Grid>
+
+                <Button Text="Dezaktywuj konto"
+                        Grid.Row="6"
+                        WidthRequest="180"
+                        HeightRequest="55"
+                        BackgroundColor="#ff4b4b"
+                        Command="{Binding DeleteAccountCommand}">
+                    <Button.Shadow>
+                        <Shadow Brush="#8a2222"
+                                Offset="{OnPlatform Android='0, 20', WinUI='0, 6'}"
+                                Radius="1"/>
+                    </Button.Shadow>
+                </Button>
+            </Grid>
+        </ScrollView>
+
+        <Button Text="Powrót"
+                Grid.Row="2"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding ReturnButtonCommand}"/>
+
+        <Button Text="Wyloguj się"
+                Grid.Row="3"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding LogoutButtonCommand}"/>
+    </Grid>
+</ContentPage>

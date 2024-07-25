@@ -24,7 +24,7 @@ public partial class ErrorPage : ContentPage, INotifyPropertyChanged
 		FishkiSetsPage.ShouldBeRefreshed = true;
         FishkiDetailsPage.ShouldBeRefreshed = true;
 
-        Shell.Current.GoToAsync($"//{nameof(FishkiSetsPage)}");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     });
 
     public ErrorPage()
@@ -34,8 +34,13 @@ public partial class ErrorPage : ContentPage, INotifyPropertyChanged
 		BindingContext = this;
 	}
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 
-	private void OnPropertyChanged(string propertyName)
+
+    private void OnPropertyChanged(string propertyName)
 	{
 		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 	}

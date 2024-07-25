@@ -9,7 +9,6 @@
             <Style TargetType="Label" x:Key="LeftSideLbl">
                 <Setter Property="HorizontalTextAlignment" Value="End" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
-                <!--<Setter Property="TextColor" Value="#4b4b4b" />-->
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -52,7 +51,6 @@
                    Margin="20 ,0, 20, 0"
                    FontAttributes="Bold"
                    FontSize="Medium"
-                   TextColor="#242424"
                    Text="{Binding FishkiName}">
                     <Entry.Behaviors>
                         <toolkit:TextValidationBehavior 
@@ -71,7 +69,6 @@
                    Margin="20 ,0, 20, 0"
                    FontAttributes="Bold"
                    FontSize="Medium"
-                   TextColor="#242424"
                    BackgroundColor="#d6d4d4"
                    Text="{Binding FishkiName}">
                     <Entry.Behaviors>
@@ -91,7 +88,6 @@
                 <Picker Grid.Row="2"
                     Grid.Column="1"
                     Margin="20, 0, 4, 0"
-                    TextColor="#242424"
                     ItemsSource="{Binding LanguagesList}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding FirstSelectedLanguage}"
@@ -104,7 +100,6 @@
                     Grid.Column="1"
                     Margin="20, 0, 4, 0"
                     BackgroundColor="#d6d4d4"
-                    TextColor="#242424"
                     ItemsSource="{Binding LanguagesList}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding FirstSelectedLanguage}"
@@ -119,7 +114,6 @@
                 <Picker Grid.Row="3"
                     Grid.Column="1"
                     Margin="20, 0, 4, 0"
-                    TextColor="#242424"
                     ItemsSource="{Binding LanguagesList}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding SecondSelectedLanguage}"
@@ -132,7 +126,6 @@
                     Grid.Column="1"
                     Margin="20, 0, 4, 0"
                     BackgroundColor="#d6d4d4"
-                    TextColor="#242424"
                     ItemsSource="{Binding LanguagesList}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding SecondSelectedLanguage}"

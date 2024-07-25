@@ -25,8 +25,18 @@
 
     <Grid RowDefinitions="70, *, 60" Margin="8"
           RowSpacing="8">
-        <Label Style="{StaticResource TitleLabel}"
-               Text="Twoje zestawy Fishek"/>
+        <Grid ColumnDefinitions="*, 50">
+            <Label Style="{StaticResource TitleLabel}"
+                   Text="Twoje zestawy Fishek"/>
+            <ImageButton Grid.Column="1"
+                         Source="settings_icon.png"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Start"
+                         Command="{Binding SettingsButtonCommand}"
+                         Margin="0, 12, 0, 0"/>
+        </Grid>
 
         <RefreshView Grid.Row="1"
                      RefreshColor="#43c000"
@@ -110,11 +120,15 @@
             </CollectionView>
         </RefreshView>
 
-        <Button 
-            x:Name="btnAddFishki"
-            Grid.Row="2"
-            Text="Dodaj nowy zestaw"
-            Style="{StaticResource BottomButton}"
-            Command="{Binding AddSetCommand}"/>
+        <Button x:Name="btnAddFishki"
+                Grid.Row="2"
+                Text="Dodaj nowy zestaw"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding AddSetCommand}"/>
+
+        <!--<Button Grid.Row="3"
+                Text="Wyloguj"
+                Style="{StaticResource BottomButton}"
+                Command="{Binding LogoutCommand}"/>-->
     </Grid>
 </ContentPage>

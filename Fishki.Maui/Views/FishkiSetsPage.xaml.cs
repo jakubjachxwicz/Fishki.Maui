@@ -10,12 +10,14 @@ namespace Fishki.Maui.Views;
 public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    public static FishkiApiService _apiService;
+    private readonly FishkiApiService _apiService = LoginPage.apiService;
     private ObservableCollection<FishkiSet> _fishkiSets;
     private bool _isRefresing;
     public ICommand RefreshCommand { get; set; }
     public ICommand AddSetCommand { get; set; }
+    //public ICommand LogoutCommand => new Command(LogoutHandler);
     public ICommand ItemClickedCommand => new Command(ItemClickedHandler);
+    public ICommand SettingsButtonCommand => new Command(() => Shell.Current.GoToAsync(nameof(SettingsPage)));
     public static bool ShouldBeRefreshed { get; set; } = false;
 
     public ObservableCollection<FishkiSet> FishkiSets
@@ -57,7 +59,6 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
         InitializeComponent();
 
         _fishkiSets = new ObservableCollection<FishkiSet>();
-        _apiService = new FishkiApiService();
 
         RefreshCommand = new Command(() =>
         {
@@ -114,6 +115,12 @@ public partial class FishkiSetsPage : ContentPage, INotifyPropertyChanged
             await Shell.Current.GoToAsync($"{nameof(ErrorPage)}?msg={ex.Message}");
         }
     }
+
+    //private void LogoutHandler()
+    //{
+    //    SecureStorage.Remove("auth_token");
+    //    Shell.Current.GoToAsync(nameof(LoginPage));
+    //}
 
     public void OnPropertyChanged(string propertyName)
     {

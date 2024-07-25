@@ -7,7 +7,7 @@ namespace Fishki.Maui.Views;
 
 public partial class EditFishkiSetPage : ContentPage, IQueryAttributable
 {
-    private readonly FishkiApiService _fishkiApiService = FishkiSetsPage._apiService;
+    private readonly FishkiApiService _fishkiApiService = LoginPage.apiService;
     public int SetId { get; set; }
 
     public EditFishkiSetPage()
