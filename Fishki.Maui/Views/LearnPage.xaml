@@ -70,6 +70,12 @@
                          BackgroundColor="#b9f075">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding CardTappedCommand}" />
+                    <SwipeGestureRecognizer Direction="Left"
+                                            Command="{Binding SwitchCardCommand}"
+                                            CommandParameter="next"/>
+                    <SwipeGestureRecognizer Direction="Right"
+                                            Command="{Binding SwitchCardCommand}"
+                                            CommandParameter="prev"/>
                 </StackLayout.GestureRecognizers>
                 <Label x:Name="frontLabel"
                        Text="{Binding FrontLabelWord}"
