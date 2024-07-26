@@ -52,6 +52,7 @@
 
         <Entry Grid.Row="1"
                Grid.Column="1"
+               Margin="0, 0, 20, 0"
                Text="{Binding Username}">
             <Entry.Behaviors>
                 <toolkit:TextValidationBehavior MinimumLength="1"
@@ -62,6 +63,7 @@
         </Entry>
         <Entry Grid.Row="2"
                Grid.Column="1"
+               Margin="0, 0, 20, 0"
                Text="{Binding Email}">
             <Entry.Behaviors>
                 <toolkit:MultiValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
@@ -77,10 +79,12 @@
         </Entry>
         <Entry Grid.Row="3"
                Grid.Column="1"
+               Margin="0, 0, 20, 0"
                IsPassword="True"
                Text="{Binding Password}"/>
         <Entry IsPassword="True"
                Grid.Row="4"
+               Margin="0, 0, 20, 0"
                Grid.Column="1"
                Text="{Binding RepeatedPassword}"/>
 
