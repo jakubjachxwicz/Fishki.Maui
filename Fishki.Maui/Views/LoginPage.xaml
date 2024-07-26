@@ -16,11 +16,11 @@
     </ContentPage.Resources>
 
     <Grid Margin="8"
-          ColumnSpacing="8"
+          ColumnSpacing="16"
           RowSpacing="8">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width=".35*" />
+            <ColumnDefinition Width=".65*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
@@ -44,9 +44,11 @@
 
         <Entry Grid.Row="1"
                Grid.Column="1"
+               Margin="0, 0, 50, 0"
                Text="{Binding Email}"/>
         <Entry IsPassword="True"
                Grid.Row="2"
+               Margin="0, 0, 50, 0"
                Grid.Column="1"
                Text="{Binding Password}"/>
 

@@ -11,6 +11,7 @@
             <Style TargetType="Button" x:Key="UpdateButton">
                 <Setter Property="BackgroundColor" Value="#43c000" />
                 <Setter Property="MaximumWidthRequest" Value="140" />
+                <Setter Property="HeightRequest" Value="42" />
                 <Setter Property="Shadow">
                     <Setter.Value>
                         <Shadow Brush="#338c01"
@@ -34,7 +35,8 @@
         <Label Style="{StaticResource TitleLabel}"
                Text="Ustawienia"/>
 
-        <ScrollView Grid.Row="1" >
+        <ScrollView Grid.Row="1"
+                    Margin="20, 0, 0, 0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -148,6 +150,7 @@
 
                 <Button Text="Dezaktywuj konto"
                         Grid.Row="6"
+                        Margin="-20, 0, 0, 0"
                         WidthRequest="180"
                         HeightRequest="55"
                         BackgroundColor="#ff4b4b"

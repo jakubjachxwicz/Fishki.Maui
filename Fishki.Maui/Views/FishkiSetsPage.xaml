@@ -29,7 +29,7 @@
             <Label Style="{StaticResource TitleLabel}"
                    Text="Twoje zestawy Fishek"/>
             <ImageButton Grid.Column="1"
-                         Source="settings_icon.png"
+                         Source="{AppThemeBinding Light=settings_icon_black.png, Dark=settings_icon_white.png}"
                          WidthRequest="30"
                          HeightRequest="30"
                          VerticalOptions="Start"
