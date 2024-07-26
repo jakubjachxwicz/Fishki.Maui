@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Fishki.Maui"
     xmlns:views="clr-namespace:Fishki.Maui.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="Fishki.Maui">
+    Title="Fishki">
 
     <ShellContent
         Title="Home"
