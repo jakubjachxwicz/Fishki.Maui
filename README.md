@@ -8,7 +8,7 @@ Chose a name and two languages for your set and input pairs of translated words.
 Each side of a card contains a word in different language. Switch it by simply tapping. You can revise words in their fixed or random order.
 
 Technologies used in project:
-<br><i>.NET MAUI, Rest API</i>
+<br><i>C#, .NET MAUI, Rest API</i>
 
 <br>
 
@@ -22,7 +22,7 @@ Wybierz nazwę oraz 2 języki dla twojego zestawu i wprowadź pary przetłumaczo
 Obróć kartę ze słówkami poprzez kliknięcie w nią. Słówek można uczyć się w ich ustalonej lub losowej kolejności.
 
 Technologie wykorzystane w projekcie:
-<br><i>.NET MAUI, Rest API</i>
+<br><i>C#, .NET MAUI, Rest API</i>
 
 <br>
 
