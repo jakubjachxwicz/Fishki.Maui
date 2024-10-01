@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>Fishki.Maui</ApplicationTitle>
+		<ApplicationTitle>Fishki</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.fishki.maui</ApplicationId>
